@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 23 oct. 2018 à 16:05
+-- Généré le :  mar. 23 oct. 2018 à 16:22
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -58,7 +58,8 @@ CREATE TABLE `jeu` (
   `ID_Jeu` int(11) NOT NULL,
   `Nom` varchar(64) NOT NULL,
   `Prix` float NOT NULL,
-  `NbJoueurs` int(2) NOT NULL,
+  `NbMinJoueurs` int(2) NOT NULL,
+  `NbMaxJoueurs` int(2) NOT NULL,
   `Note` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
