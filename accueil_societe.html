@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8"/>
+<title>Accueil Le Plateau</title>
+<meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
+<link rel="icon" type="image/png" href="image/logoonglet.png"/>
+
+<link href="../jquery_bootstrap/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="accueil_societe.css">
+
+</head>
+
+<body>
+
+       
+ 
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+   	<img src="image/logoaccueil.png" alt="logo" height="60" width="65" class="navbar-brand">
+   		<ul class="navbar-nav">
+			<a href="algo_categories_societe.php?chosen_categorie=cartes" class="nav-link"><li class="nav-item">Cartes</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=ambiance" class="nav-link"><li class="nav-item">Ambiance</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=strategie" class="nav-link"><li class="nav-item">Stratégie</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=adresse" class="nav-link"><li class="nav-item">Adresse</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=nouveau" class="nav-link"><li class="nav-item">Nouveautés</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=coeur" class="nav-link"><li class="nav-item">Coups de coeur</li></a>
+		</ul>
+	<form class="form-inline">
+		<input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+	</form>
+	</nav>
+
+	
+	<section>
+		<div class="row">
+			<article class="col-lg-6">
+				<h2> Dernières sorties </h2>
+					<a href="#">
+						<h3> Paper Tales </h3>
+						<img src="image/paper-tales.jpg" alt="paper-tales" height="120" width="130"/>
+					</a>
+					<a href="#">
+						<h3> Secrets </h3>
+						<img src="image/secrets.jpg" alt="secrets" height="120" width="130"/>
+					</a>
+			</article>
+				
+			<article class="col-lg-6">
+				<h2> Les plus populaires </h2>
+					<a href="#">
+						<h3> Mysterium </h3>
+						<img src="image/mysterium.jpg" alt="mysterium" height="120" width="130"/>
+						</a>
+					<a href="#">
+						<h3> Citadelles </h3>
+						<img src="image/citadelles.png" alt="citadelles" height="120" width="130"/>
+					</a>
+			</article>
+		</div>
+	</section>
+
+	<a href="#"> <img src="image/shopping-cart.png" alt="panier" height="60" width="65"> </a>
+
+	<!--placeholder requete PHP jeux récents-->
+	<!--placeholder requete PHP jeux + aimés-->
+
+	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
+
+</body>
+
+</html>

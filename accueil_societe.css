@@ -1,0 +1,25 @@
+body {
+	margin: auto;
+	width: 90%;
+}
+
+section {
+	text-align: center;
+	margin-top: 2%;
+}
+
+footer {
+	text-align: center;
+}
+
+h2 {
+	color: rgb(218, 9, 15);
+}
+
+.nav-item {
+	color: rgb(218, 9, 15);
+}
+
+::placeholder {
+	color: rgb(218, 9, 15);
+}
