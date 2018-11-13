@@ -12,6 +12,10 @@ footer {
 	text-align: center;
 }
 
+h1 {
+	font-style: italic;
+}
+
 h2 {
 	color: rgb(218, 9, 15);
 }
