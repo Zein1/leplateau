@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  mar. 13 nov. 2018 à 10:26
--- Version du serveur :  10.1.35-MariaDB
--- Version de PHP :  7.2.9
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 13 nov. 2018 à 15:54
+-- Version du serveur :  5.7.21
+-- Version de PHP :  5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,18 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `leplateau`
 --
--- 
+
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `avis`
 --
 
-CREATE TABLE `avis` (
+DROP TABLE IF EXISTS `avis`;
+CREATE TABLE IF NOT EXISTS `avis` (
   `ID_Compte` int(11) NOT NULL,
   `ID_Jeu` int(11) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `note` int(2) NOT NULL
+  `note` int(2) NOT NULL,
+  KEY `ID_Compte` (`ID_Compte`),
+  KEY `ID_Jeu` (`ID_Jeu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `avis`
+--
+
+INSERT INTO `avis` (`ID_Compte`, `ID_Jeu`, `description`, `note`) VALUES
+(1, 2, 'Ce jeu résonne au plus profond de mon âme.', 5),
+(1, 1, 'Un jeu qui emballe l\'imagination !', 4),
+(2, 4, 'J\'aime beaucoup l\'idée de ce jeu, ça encourage le protectionnisme.', 5),
+(2, 3, 'Je n\'aime pas les secrets, surtout ceux des autres.', 1),
+(1, 4, 'Bon jeu mais un peu long.', 3);
 
 -- --------------------------------------------------------
 
@@ -40,15 +55,25 @@ CREATE TABLE `avis` (
 -- Structure de la table `compte`
 --
 
-CREATE TABLE `compte` (
-  `ID_Compte` int(11) NOT NULL,
+DROP TABLE IF EXISTS `compte`;
+CREATE TABLE IF NOT EXISTS `compte` (
+  `ID_Compte` int(11) NOT NULL AUTO_INCREMENT,
   `passwrd` varchar(15) DEFAULT NULL,
   `nom` varchar(30) DEFAULT NULL,
   `prenom` varchar(30) DEFAULT NULL,
   `age` varchar(30) DEFAULT NULL,
   `sexe` int(1) DEFAULT NULL,
-  `mail` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `mail` varchar(40) NOT NULL,
+  PRIMARY KEY (`ID_Compte`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `compte`
+--
+
+INSERT INTO `compte` (`ID_Compte`, `passwrd`, `nom`, `prenom`, `age`, `sexe`, `mail`) VALUES
+(1, 'mdp', 'Lalane', 'Francis', '45', 1, 'francis.lalane@funmail.com'),
+(2, 'mdp2', 'Lestylo', 'Marine', '59', 0, 'vivelafrance@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -56,54 +81,30 @@ CREATE TABLE `compte` (
 -- Structure de la table `jeu`
 --
 
-CREATE TABLE `jeu` (
+DROP TABLE IF EXISTS `jeu`;
+CREATE TABLE IF NOT EXISTS `jeu` (
   `nom` varchar(100) DEFAULT NULL,
   `prix` int(10) DEFAULT NULL,
   `nbMinJoueurs` int(2) NOT NULL,
   `noteRedac` int(2) NOT NULL,
   `nbMaxJoueurs` int(2) DEFAULT NULL,
   `catégorie` varchar(30) DEFAULT NULL,
-  `ID_Jeu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `image` varchar(250) NOT NULL,
+  `ID_Jeu` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID_Jeu`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Index pour les tables déchargées
+-- Déchargement des données de la table `jeu`
 --
 
---
--- Index pour la table `avis`
---
-ALTER TABLE `avis`
-  ADD KEY `ID_Compte` (`ID_Compte`),
-  ADD KEY `ID_Jeu` (`ID_Jeu`);
-
---
--- Index pour la table `compte`
---
-ALTER TABLE `compte`
-  ADD PRIMARY KEY (`ID_Compte`);
-
---
--- Index pour la table `jeu`
---
-ALTER TABLE `jeu`
-  ADD PRIMARY KEY (`ID_Jeu`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `compte`
---
-ALTER TABLE `compte`
-  MODIFY `ID_Compte` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `jeu`
---
-ALTER TABLE `jeu`
-  MODIFY `ID_Jeu` int(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO `jeu` (`nom`, `prix`, `nbMinJoueurs`, `noteRedac`, `nbMaxJoueurs`, `catégorie`, `image`, `ID_Jeu`) VALUES
+('Paper Tales', 40, 2, 16, 4, 'Stratégie', 'image/paper-tales.jpg', 1),
+('Mysterium', 35, 2, 18, 7, 'Ambiance', 'image/mysterium.jpg', 2),
+('Secrets', 20, 4, 14, 8, 'Stratégie', 'image/secrets.jpg', 3),
+('Citadelles', 22, 2, 17, 8, 'Stratégie', 'image/citadelles.png', 4),
+('Smash up', 17, 2, 11, 4, 'Cartes', 'image/smash-up-vf.jpg', 5),
+('Jenga', 20, 1, 12, 10, 'Adresse', 'image/jenga.jpg', 6);
 
 --
 -- Contraintes pour les tables déchargées
