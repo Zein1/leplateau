@@ -35,7 +35,7 @@
 
 <body>
 
-	<!--navbar-->
+	<!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
    	<h1 class="nav-item">Le Plateau</h1>
@@ -51,7 +51,7 @@
 		<input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
 	</form>
 
-		<!--bouton connexion-->
+		<!--BOUTON CONNEXION-->
 	   <!-- Button trigger modal -->
 	<button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal"> Connexion </button>      
 	<!-- Modal -->
@@ -80,31 +80,54 @@
      </div>
 	</nav>
 	
-	<!--Partie centrale derniers jeux sortis-->
+	<!--PARTIE CENTRALE DERNIERS JEUX SORTIS & COUPS DE COEUR-->
 	<section>
 		<div class="row">
 			<article class="col-lg-6">
 				<h2> Dernières sorties </h2>
+		<?php 
+			try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=leplateau;charset=utf8', 'root', '');	// On se connecte à MySQL
+			}
+			catch(Exception $e)
+			{
+			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
+			}
+
+			$query_recent_games = $bdd->query('SELECT nom, image FROM jeu ORDER BY ID_Jeu DESC LIMIT 0, 2');
+
+			while ($recent_data = $query_recent_games->fetch())
+			{
+		?>
 					<a href="#">
-						<h3> Paper Tales </h3>
-						<img src="image/paper-tales.jpg" alt="paper-tales" height="120" width="130"/>
+						<h3> <?php echo $recent_data['nom']; ?> </h3>
+						<img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
 					</a>
-					<a href="#">
-						<h3> Secrets </h3>
-						<img src="image/secrets.jpg" alt="secrets" height="120" width="130"/>
-					</a>
+		<?php
+			}
+
+			$query_recent_games->closeCursor();
+		?>
 			</article>
 				
 			<article class="col-lg-6">
 				<h2> Les plus populaires </h2>
+		<?php
+			$query_popular_games = $bdd->query('SELECT jeu.nom, jeu.image, AVG(avis.note) FROM jeu INNER JOIN avis ON jeu.ID_Jeu = avis.ID_Jeu GROUP BY jeu.ID_Jeu ORDER BY AVG(avis.note) DESC LIMIT 0, 2');
+
+			while ($popular_data = $query_popular_games->fetch())
+			{
+		?>	
 					<a href="#">
-						<h3> Mysterium </h3>
-						<img src="image/mysterium.jpg" alt="mysterium" height="120" width="130"/>
+						<h3> <?php echo $popular_data['nom']; ?> </h3>
+						<img src="<?php echo $popular_data['image'];?>" alt="mysterium" height="120" width="130"/>
 						</a>
-					<a href="#">
-						<h3> Citadelles </h3>
-						<img src="image/citadelles.png" alt="citadelles" height="120" width="130"/>
-					</a>
+		<?php
+			}
+
+			$query_popular_games->closeCursor();
+		?>
 			</article>
 		</div>
 	</section>
@@ -112,7 +135,7 @@
 	<!--placeholder requete PHP jeux récents-->
 	<!--placeholder requete PHP jeux + aimés-->
 
-	<!--Footer avec mentions légales, etc...-->
+	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
 </body>
