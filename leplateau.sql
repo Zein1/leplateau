@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `leplateau`
 --
-
--- --------------------------------------------------------
+CREATE DATABASE leplateau ;
+-- 
 
 --
 -- Structure de la table `avis`
