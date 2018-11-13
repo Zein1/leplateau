@@ -1,3 +1,4 @@
+/*CSS PAGE PRINCIPALE*/
 body {
 	margin: auto;
 	width: 100%;
@@ -20,10 +21,37 @@ h2 {
 	color: rgb(218, 9, 15);
 }
 
+/*CSS NAVBAR*/
 .nav-item {
 	color: rgb(218, 9, 15);
 }
 
 ::placeholder {
 	color: rgb(218, 9, 15);
+}
+
+/*CSS BOUTON CONNEXION*/
+oui {    
+	text-align: center;
+}
+
+#Connexion {    
+	background-color: white;
+}
+
+#annuler {    
+	color: black;
+	border-radius: 10px;
+}
+
+#bouton-connexion {    
+	border-radius: 10px;
+}
+
+#exampleModalLabel {    
+	font-family:"palatino linotype", palatino, serif;
+}
+
+#bouton-principal {    
+	border-radius: 10px;
 }

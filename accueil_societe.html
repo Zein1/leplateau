@@ -17,7 +17,8 @@
 </head>
 
 <body>
- 
+
+	<!--navbar-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
    	<h1 class="nav-item">Le Plateau</h1>
@@ -32,8 +33,37 @@
 	<form class="form-inline">
 		<input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
 	</form>
+
+		<!--bouton connexion-->
+	   <!-- Button trigger modal -->
+	<button type="button" class="btn btn-orange accent-2" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal"> Connexion </button>      
+	<!-- Modal -->
+	<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content" id="Connexion">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Connexion au Plateau</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">                
+           	<form class="oui">
+           	  <p><input type="text" name="identifiant" placeholder="Identifiant"></p>
+           	  <p><input type="password" name="mdp" placeholder="Mot de passe"></p>                
+           	</form>
+           	</div>
+
+           <div class="modal-footer">
+             <button type="button" class="btn btn-stylish-color" id="annuler" data-dismiss="modal">Annuler</button>
+             <button type="button" class="btn btn-orange accent-2" id="bouton-connexion">Connexion</button>
+           </div>
+         </div>
+       </div>
+     </div>
 	</nav>
 	
+	<!--Partie centrale derniers jeux sortis-->
 	<section>
 		<div class="row">
 			<article class="col-lg-6">
@@ -67,6 +97,7 @@
 	<!--placeholder requete PHP jeux récents-->
 	<!--placeholder requete PHP jeux + aimés-->
 
+	<!--Footer avec mentions légales, etc...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
 </body>
