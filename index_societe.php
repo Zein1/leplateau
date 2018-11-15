@@ -103,10 +103,10 @@ if ($_GET["chosen_categorie"] == "nouveau")
         {
     ?>
     <div class="row index_entry">
-      <div class="col-lg-6">
+      <div class="col-lg-6 index_image">
         <img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
       </div>
-        <p class="col-lg-6">
+        <p class="col-lg-6 index_desc">
         <strong>Jeu</strong> : <?php echo $recent_data['nom']; ?><br />
         <strong>Joueurs</strong> : <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs'];?>  <br />
         <strong>Note</strong> : <?php echo $recent_data['noteRedac']; ?><br />
@@ -131,10 +131,10 @@ if ($_GET["chosen_categorie"] == "nouveau")
         {
       ?>
       <div class="row index_entry">
-        <div class="col-lg-6">
+        <div class="col-lg-6 index_image">
           <img src="<?php echo $popular_data['image'];?>" alt="paper-tales" height="120" width="130"/>
         </div>
-          <p class="col-lg-6">
+          <p class="col-lg-6 index_desc">
           <strong>Jeu</strong> : <?php echo $popular_data['nom']; ?><br />
           <strong>Joueurs</strong> : <?php echo $popular_data['nbMinJoueurs']; ?> à <?php echo $popular_data['nbMaxJoueurs'];?>  <br />
           <strong>Note</strong> : <?php echo $popular_data['noteRedac']; ?><br />
@@ -159,10 +159,10 @@ if ($_GET["chosen_categorie"] == "nouveau")
           {
           ?>
           <div class="row index_entry">
-            <div class="col-lg-6">
+            <div class="col-lg-6 index_image">
               <img src="<?php echo $categorie_data['image'];?>" alt="paper-tales" height="120" width="130"/>
             </div>
-              <p class="col-lg-6">
+              <p class="col-lg-6 index_desc">
               <strong>Jeu</strong> : <?php echo $categorie_data['nom']; ?><br />
               <strong>Joueurs</strong> : <?php echo $categorie_data['nbMinJoueurs']; ?> à <?php echo $categorie_data['nbMaxJoueurs'];?>  <br />
               <strong>Note</strong> : <?php echo $categorie_data['noteRedac']; ?><br />

@@ -27,7 +27,15 @@ h2 {
 
 /*CSS PAGE INDEX*/
 .index_entry {
-	text-align: center;
+	margin-bottom: 1%;
+}
+
+.index_desc {
+	text-align: left;
+}
+
+.index_image {
+	text-align: right;
 }
 
 /*CSS NAVBAR*/
