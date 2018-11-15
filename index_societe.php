@@ -38,14 +38,14 @@
 	<!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
-   	<h1 class="nav-item">Le Plateau</h1>
+   	<a href="accueil_societe.php" class="nav-link" id="retour_accueil"><h1 class="nav-item">Le Plateau</h1></a>
    		<ul class="navbar-nav">
-			<a href="index_societe.php?chosen_categorie=cartes" class="nav-link"><li class="nav-item">Cartes</li></a>
-			<a href="index_societe.php?chosen_categorie=ambiance" class="nav-link"><li class="nav-item">Ambiance</li></a>
-			<a href="index_societe.php?chosen_categorie=strategie" class="nav-link"><li class="nav-item">Stratégie</li></a>
-			<a href="index_societe.php?chosen_categorie=adresse" class="nav-link"><li class="nav-item">Adresse</li></a>
-			<a href="index_societe.php?chosen_categorie=nouveau" class="nav-link"><li class="nav-item">Nouveautés</li></a>
-			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link"><li class="nav-item">Coups de coeur</li></a>
+			<a href="index_societe.php?chosen_categorie=cartes" class="nav-link" id="cartes"><li class="nav-item">Cartes</li></a>
+			<a href="index_societe.php?chosen_categorie=ambiance" class="nav-link" id="ambiance"><li class="nav-item">Ambiance</li></a>
+			<a href="index_societe.php?chosen_categorie=strategie" class="nav-link" id="strategie"><li class="nav-item">Stratégie</li></a>
+			<a href="index_societe.php?chosen_categorie=adresse" class="nav-link" id="adresse"><li class="nav-item">Adresse</li></a>
+			<a href="index_societe.php?chosen_categorie=nouveau" class="nav-link" id="nouveautes"><li class="nav-item">Nouveautés</li></a>
+			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link" id="coeur"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
 	<form class="form-inline">
 		<input type="text" action="index_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
@@ -80,7 +80,7 @@
      </div>
 	</nav>
 
-<!--Page de réception de l'URL-->
+<!--RESULTATS DE RECHERCHE-->
 
 <?php
 try
@@ -92,25 +92,81 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 }
 
-$query_categorie = $bbd->query('SELECT * FROM jeu WHERE Categorie = $_GET["chosen_categorie"]'); //l'url du menu transmet la var chosen_categorie 
-while ($categorie_data = $query_categorie->fetch())
-{
-?>
-    <p>
-    <strong>Jeu</strong> : <?php echo $categorie_data['Nom']; ?><br />
-    <strong>Joueurs</strong> : <?php echo $categorie_data['NbMinJoueurs']; ?> à <?php echo $categorie_data['NbMaxJoueurs'];?>  <br />
-    <strong>Note</strong> : <?php echo $categorie_data['Note']; ?><br />
-    <strong>Prix</strong> : <?php echo $categorie_data['Prix']; ?>€
-   </p>
-<?php
-}
+//SI CLIQUE "NOUVEAUTE" ON AFFICHE TOUS LES JEUX PAR DATE D'ENTREE DANS LA BDD
 
-$reponse->closeCursor(); // Termine le traitement de la requête
+if ($_GET["chosen_categorie"] == "nouveau")
+  {
 
+      $query_recent_games = $bdd->query('SELECT * FROM jeu ORDER BY ID_Jeu DESC');
+
+      while ($recent_data = $query_recent_games->fetch())
+        {
+    ?>
+        <p>
+        <strong>Jeu</strong> : <?php echo $recent_data['nom']; ?><br />
+        <strong>Joueurs</strong> : <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs'];?>  <br />
+        <strong>Note</strong> : <?php echo $recent_data['noteRedac']; ?><br />
+        <strong>Prix</strong> : <?php echo $recent_data['prix']; ?>€
+       </p>
+
+      <?php
+      }
+
+      $query_recent_games->closeCursor();
+  }
+
+  //SINON SI ON CLIQUE "COUPS DE COEUR" ON AFFICHE TOUS LES JEUX PAR NOTE UTILISATEUR
+
+  else if ($_GET["chosen_categorie"] == "coeur")
+  {
+
+        $query_popular_games = $bdd->query('SELECT * FROM jeu WHERE noteRedac >= 16 ORDER BY noteRedac DESC');
+
+        while ($popular_data = $query_popular_games->fetch())
+        {
+      ?>
+          <p>
+          <strong>Jeu</strong> : <?php echo $popular_data['nom']; ?><br />
+          <strong>Joueurs</strong> : <?php echo $popular_data['nbMinJoueurs']; ?> à <?php echo $popular_data['nbMaxJoueurs'];?>  <br />
+          <strong>Note</strong> : <?php echo $popular_data['noteRedac']; ?><br />
+          <strong>Prix</strong> : <?php echo $popular_data['prix']; ?>€
+         </p>
+
+      <?php
+        }
+
+        $query_popular_games->closeCursor();
+  }
+
+  //SINON C'EST QUE L'UTILISATEUR A CLIQUE UNE AUTRE CATEGORIE, ON CHARGE TOUS LES JEUX DE CETTE CATEGORIE
+
+   else
+    {
+
+          $query_categorie = $bdd->query('SELECT * FROM jeu WHERE catégorie = "' . $_GET["chosen_categorie"] . '"'); 
+          //l'url du menu transmet la var chosen_categorie 
+          while ($categorie_data = $query_categorie->fetch())
+          {
+          ?>
+              <p>
+              <strong>Jeu</strong> : <?php echo $categorie_data['nom']; ?><br />
+              <strong>Joueurs</strong> : <?php echo $categorie_data['nbMinJoueurs']; ?> à <?php echo $categorie_data['nbMaxJoueurs'];?>  <br />
+              <strong>Note</strong> : <?php echo $categorie_data['noteRedac']; ?><br />
+              <strong>Prix</strong> : <?php echo $categorie_data['prix']; ?>€
+             </p>
+          <?php
+          }
+
+          $query_categorie->closeCursor(); // Termine le traitement de la requête
+    }
 ?>
 
 	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
+
+  <!--SCRIPTS JQUERY-->
+  <script src="node_modules/jquery/dist/jquery.min.js"> </script>
+  <script src="accueil_societe.js"> </script>
 
 </body>
 

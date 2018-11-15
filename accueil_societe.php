@@ -38,7 +38,7 @@
 	<!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
-   	<h1 class="nav-item">Le Plateau</h1>
+   	<a href="accueil_societe.php" class="nav-link" id="retour_accueil"><h1 class="nav-item">Le Plateau</h1></a>
    		<ul class="navbar-nav">
 			<a href="index_societe.php?chosen_categorie=cartes" class="nav-link" id="cartes"><li class="nav-item">Cartes</li></a>
 			<a href="index_societe.php?chosen_categorie=ambiance" class="nav-link" id="ambiance"><li class="nav-item">Ambiance</li></a>
