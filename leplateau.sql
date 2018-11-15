@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 13 nov. 2018 à 15:54
--- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
+-- Hôte : 127.0.0.1
+-- Généré le :  jeu. 15 nov. 2018 à 15:37
+-- Version du serveur :  10.1.35-MariaDB
+-- Version de PHP :  7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,14 +28,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `avis`
 --
 
-DROP TABLE IF EXISTS `avis`;
-CREATE TABLE IF NOT EXISTS `avis` (
+CREATE TABLE `avis` (
   `ID_Compte` int(11) NOT NULL,
   `ID_Jeu` int(11) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `note` int(2) NOT NULL,
-  KEY `ID_Compte` (`ID_Compte`),
-  KEY `ID_Jeu` (`ID_Jeu`)
+  `note` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -55,17 +52,15 @@ INSERT INTO `avis` (`ID_Compte`, `ID_Jeu`, `description`, `note`) VALUES
 -- Structure de la table `compte`
 --
 
-DROP TABLE IF EXISTS `compte`;
-CREATE TABLE IF NOT EXISTS `compte` (
-  `ID_Compte` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `compte` (
+  `ID_Compte` int(11) NOT NULL,
   `passwrd` varchar(15) DEFAULT NULL,
   `nom` varchar(30) DEFAULT NULL,
   `prenom` varchar(30) DEFAULT NULL,
   `age` varchar(30) DEFAULT NULL,
   `sexe` int(1) DEFAULT NULL,
-  `mail` varchar(40) NOT NULL,
-  PRIMARY KEY (`ID_Compte`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `mail` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
@@ -81,8 +76,7 @@ INSERT INTO `compte` (`ID_Compte`, `passwrd`, `nom`, `prenom`, `age`, `sexe`, `m
 -- Structure de la table `jeu`
 --
 
-DROP TABLE IF EXISTS `jeu`;
-CREATE TABLE IF NOT EXISTS `jeu` (
+CREATE TABLE `jeu` (
   `nom` varchar(100) DEFAULT NULL,
   `prix` int(10) DEFAULT NULL,
   `nbMinJoueurs` int(2) NOT NULL,
@@ -90,21 +84,60 @@ CREATE TABLE IF NOT EXISTS `jeu` (
   `nbMaxJoueurs` int(2) DEFAULT NULL,
   `catégorie` varchar(30) DEFAULT NULL,
   `image` varchar(250) NOT NULL,
-  `ID_Jeu` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID_Jeu`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `testRedac` text NOT NULL,
+  `ID_Jeu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `jeu`
 --
 
-INSERT INTO `jeu` (`nom`, `prix`, `nbMinJoueurs`, `noteRedac`, `nbMaxJoueurs`, `catégorie`, `image`, `ID_Jeu`) VALUES
-('Paper Tales', 40, 2, 16, 4, 'Stratégie', 'image/paper-tales.jpg', 1),
-('Mysterium', 35, 2, 18, 7, 'Ambiance', 'image/mysterium.jpg', 2),
-('Secrets', 20, 4, 14, 8, 'Stratégie', 'image/secrets.jpg', 3),
-('Citadelles', 22, 2, 17, 8, 'Stratégie', 'image/citadelles.png', 4),
-('Smash up', 17, 2, 11, 4, 'Cartes', 'image/smash-up-vf.jpg', 5),
-('Jenga', 20, 1, 12, 10, 'Adresse', 'image/jenga.jpg', 6);
+INSERT INTO `jeu` (`nom`, `prix`, `nbMinJoueurs`, `noteRedac`, `nbMaxJoueurs`, `catégorie`, `image`, `testRedac`, `ID_Jeu`) VALUES
+('Paper Tales', 40, 2, 16, 4, 'Stratégie', 'image/paper-tales.jpg', '', 1),
+('Mysterium', 35, 2, 18, 7, 'Ambiance', 'image/mysterium.jpg', '', 2),
+('Secrets', 20, 4, 14, 8, 'Stratégie', 'image/secrets.jpg', '', 3),
+('Citadelles', 22, 2, 17, 8, 'Stratégie', 'image/citadelles.png', '', 4),
+('Smash up', 17, 2, 11, 4, 'Cartes', 'image/smash-up-vf.jpg', '', 5),
+('Jenga', 20, 1, 12, 10, 'Adresse', 'image/jenga.jpg', '', 6);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `avis`
+--
+ALTER TABLE `avis`
+  ADD KEY `ID_Compte` (`ID_Compte`),
+  ADD KEY `ID_Jeu` (`ID_Jeu`);
+
+--
+-- Index pour la table `compte`
+--
+ALTER TABLE `compte`
+  ADD PRIMARY KEY (`ID_Compte`);
+
+--
+-- Index pour la table `jeu`
+--
+ALTER TABLE `jeu`
+  ADD PRIMARY KEY (`ID_Jeu`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `compte`
+--
+ALTER TABLE `compte`
+  MODIFY `ID_Compte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `jeu`
+--
+ALTER TABLE `jeu`
+  MODIFY `ID_Jeu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées
