@@ -90,7 +90,7 @@
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, image FROM jeu WHERE ID_Jeu = 3');
+			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, image FROM jeu WHERE ID_Jeu = 3');
 
 			while ($recent_data = $query_game->fetch())
 			{
@@ -120,6 +120,17 @@
 				Prix : <?php echo $recent_data['prix']; ?> Euros <br/>
 				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/5
 				</p>
+			</article>
+		</div>
+		<div class="row">
+			<article class="col-lg-2">
+			</article>
+			<article class="col-lg-8">
+				<p>
+					<?php echo $recent_data['testRedac']; ?>
+				</p>
+			</article>
+			<article class="col-lg-2">
 			</article>
 		</div>
 		<?php
