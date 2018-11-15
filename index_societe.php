@@ -1,17 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 
 <head>
 
 <meta charset="utf-8"/>
-<title>Accueil Le Plateau</title>
+<title>Index catégories</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
 <link rel="icon" type="image/png" href="image/logoonglet.png"/>
 
-<link href="jquery_bootstrap/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-<script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
-<script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
+<link href="../jquery_bootstrap/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="accueil_societe.css">
 
 <!--mdbootstrap-->
@@ -40,18 +40,18 @@
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
    	<h1 class="nav-item">Le Plateau</h1>
    		<ul class="navbar-nav">
-			<a href="index_societe.php?chosen_categorie=cartes" class="nav-link" id="cartes"><li class="nav-item">Cartes</li></a>
-			<a href="index_societe.php?chosen_categorie=ambiance" class="nav-link" id="ambiance"><li class="nav-item">Ambiance</li></a>
-			<a href="index_societe.php?chosen_categorie=strategie" class="nav-link" id="strategie"><li class="nav-item">Stratégie</li></a>
-			<a href="index_societe.php?chosen_categorie=adresse" class="nav-link" id="adresse"><li class="nav-item">Adresse</li></a>
-			<a href="index_societe.php?chosen_categorie=nouveau" class="nav-link" id="nouveautes"><li class="nav-item">Nouveautés</li></a>
-			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link" id="coeur"><li class="nav-item">Coups de coeur</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=cartes" class="nav-link"><li class="nav-item">Cartes</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=ambiance" class="nav-link"><li class="nav-item">Ambiance</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=strategie" class="nav-link"><li class="nav-item">Stratégie</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=adresse" class="nav-link"><li class="nav-item">Adresse</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=nouveau" class="nav-link"><li class="nav-item">Nouveautés</li></a>
+			<a href="algo_categories_societe.php?chosen_categorie=coeur" class="nav-link"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
 	<form class="form-inline">
-		<input type="text" action="index_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+		<input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
 	</form>
 
-		<!--BOUTON CONNEXION-->
+	<!--BOUTON CONNEXION-->
 	   <!-- Button trigger modal -->
 	<button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal"> Connexion </button>      
 	<!-- Modal -->
@@ -79,69 +79,38 @@
        </div>
      </div>
 	</nav>
-	
-	<!--PARTIE CENTRALE DERNIERS JEUX SORTIS & COUPS DE COEUR-->
-	<section>
-		<div class="row">
-			<article class="col-lg-6">
-				<h2> Dernières sorties </h2>
-		<?php 
-			try
-			{
-				$bdd = new PDO('mysql:host=localhost;dbname=leplateau;charset=utf8', 'root', '');	// On se connecte à MySQL
-			}
-			catch(Exception $e)
-			{
-			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
-			}
 
-			$query_recent_games = $bdd->query('SELECT nom, image FROM jeu ORDER BY ID_Jeu DESC LIMIT 0, 2');
+<!--Page de réception de l'URL-->
 
-			while ($recent_data = $query_recent_games->fetch())
-			{
-		?>
-				<div class="element_jeu">
-					<a href="#">
-						<h3> <?php echo $recent_data['nom']; ?> </h3>
-						<img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
-					</a>
-				</div>
-		<?php
-			}
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=leplateau;charset=utf8', 'root', '');	// On se connecte à MySQL
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
+}
 
-			$query_recent_games->closeCursor();
-		?>
-			</article>
-				
-			<article class="col-lg-6">
-				<h2> Les plus populaires </h2>
-		<?php
-			$query_popular_games = $bdd->query('SELECT jeu.nom, jeu.image, AVG(avis.note) FROM jeu INNER JOIN avis ON jeu.ID_Jeu = avis.ID_Jeu GROUP BY jeu.ID_Jeu ORDER BY AVG(avis.note) DESC LIMIT 0, 2');
+$query_categorie = $bbd->query('SELECT * FROM jeu WHERE Categorie = $_GET["chosen_categorie"]'); //l'url du menu transmet la var chosen_categorie 
+while ($categorie_data = $query_categorie->fetch())
+{
+?>
+    <p>
+    <strong>Jeu</strong> : <?php echo $categorie_data['Nom']; ?><br />
+    <strong>Joueurs</strong> : <?php echo $categorie_data['NbMinJoueurs']; ?> à <?php echo $categorie_data['NbMaxJoueurs'];?>  <br />
+    <strong>Note</strong> : <?php echo $categorie_data['Note']; ?><br />
+    <strong>Prix</strong> : <?php echo $categorie_data['Prix']; ?>€
+   </p>
+<?php
+}
 
-			while ($popular_data = $query_popular_games->fetch())
-			{
-		?>	
-				<div class="element_jeu">
-					<a href="#">
-						<h3> <?php echo $popular_data['nom']; ?> </h3>
-						<img src="<?php echo $popular_data['image'];?>" alt="mysterium" height="120" width="130"/>
-						</a>
-				</div>
-		<?php
-			}
+$reponse->closeCursor(); // Termine le traitement de la requête
 
-			$query_popular_games->closeCursor();
-		?>
-			</article>
-		</div>
-	</section>
+?>
 
 	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
-
-	<!--SCRIPTS JQUERY-->
-	<script src="node_modules/jquery/dist/jquery.min.js"> </script>
-	<script src="accueil_societe.js"> </script>
 
 </body>
 
