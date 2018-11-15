@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="utf-8"/>
-<title>Accueil Le Plateau</title>
+<title>Details</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
 <link rel="icon" type="image/png" href="image/logoonglet.png"/>
 
@@ -90,7 +90,7 @@
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, image FROM jeu WHERE ID_Jeu = 3');
+			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, description, image FROM jeu WHERE ID_Jeu = 3');
 
 			while ($recent_data = $query_game->fetch())
 			{
@@ -111,15 +111,18 @@
 		<div class="row">
 			<article class="col-lg-4">
 				<br/><br/>
-					<img src="<?php echo $recent_data['image'];?>" alt="<?php echo $recent_data['nom'];?>" height="480" width="520"/>
+					<img src="<?php echo $recent_data['image'];?>" alt="<?php echo $recent_data['nom'];?>" height="300" width="320"/>
 			</article>
-			<article class="col-lg-8">
-				<p>Catégorie : <?php echo $recent_data['catégorie']; ?> <br/> <br/>
-				C'est <?php echo $recent_data['nom']; ?> <br/> 
+			<article class="col-lg-6">
+				<br/><br/><br/>
+				<p>Catégorie : <?php echo $recent_data['catégorie']; ?> <br/>
 				de <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs']; ?> Joueurs <br/>
 				Prix : <?php echo $recent_data['prix']; ?> Euros <br/>
-				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/5
+				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/5 <br/> <br/>
+				"<?php echo $recent_data['description']; ?>"
 				</p>
+			</article>
+			<article class="col-lg-2">
 			</article>
 		</div>
 		<div class="row">
@@ -127,6 +130,7 @@
 			</article>
 			<article class="col-lg-8">
 				<p>
+					<br/><br/>
 					<?php echo $recent_data['testRedac']; ?>
 				</p>
 			</article>
