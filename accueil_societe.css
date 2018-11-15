@@ -25,6 +25,11 @@ h2 {
 	color: rgb(218, 9, 15);
 }
 
+/*CSS PAGE INDEX*/
+.index_entry {
+	text-align: center;
+}
+
 /*CSS NAVBAR*/
 #retour_accueil {
 	padding: 0 !important;	/*on enleve le padding naturel de bootstrap et on lui signale que ce CSS est prioritaire*/

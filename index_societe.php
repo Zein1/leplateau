@@ -102,7 +102,7 @@ if ($_GET["chosen_categorie"] == "nouveau")
       while ($recent_data = $query_recent_games->fetch())
         {
     ?>
-        <p>
+        <p class="index_entry">
         <strong>Jeu</strong> : <?php echo $recent_data['nom']; ?><br />
         <strong>Joueurs</strong> : <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs'];?>  <br />
         <strong>Note</strong> : <?php echo $recent_data['noteRedac']; ?><br />
@@ -125,7 +125,7 @@ if ($_GET["chosen_categorie"] == "nouveau")
         while ($popular_data = $query_popular_games->fetch())
         {
       ?>
-          <p>
+          <p class="index_entry">
           <strong>Jeu</strong> : <?php echo $popular_data['nom']; ?><br />
           <strong>Joueurs</strong> : <?php echo $popular_data['nbMinJoueurs']; ?> à <?php echo $popular_data['nbMaxJoueurs'];?>  <br />
           <strong>Note</strong> : <?php echo $popular_data['noteRedac']; ?><br />
@@ -148,7 +148,7 @@ if ($_GET["chosen_categorie"] == "nouveau")
           while ($categorie_data = $query_categorie->fetch())
           {
           ?>
-              <p>
+              <p class="index_entry">
               <strong>Jeu</strong> : <?php echo $categorie_data['nom']; ?><br />
               <strong>Joueurs</strong> : <?php echo $categorie_data['nbMinJoueurs']; ?> à <?php echo $categorie_data['nbMaxJoueurs'];?>  <br />
               <strong>Note</strong> : <?php echo $categorie_data['noteRedac']; ?><br />
