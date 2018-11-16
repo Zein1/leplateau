@@ -62,7 +62,7 @@
         </div>
 
         <div  class="col-lg-5">
-        <form action="" method="post" class="inscription">
+        <form action="traitement_auth.php" method="post" class="inscription">
         
             <p><label for="nom"></label><input type="text" class="taille_input_inscription" name="nom" id="nom" placeholder="Nom" ></p>
             <div id="error_nom"></div>
