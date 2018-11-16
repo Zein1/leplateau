@@ -88,6 +88,10 @@ nav {
 
 /*PAGE INSCRIPTION*/
 
+.page_inscription {
+	margin-bottom: 3%;
+}
+
 .inscription {    
    float: right;
    padding: 5%;
@@ -95,4 +99,13 @@ nav {
 
 .taille_input_inscription {
 	width: 300px;
+}
+
+#image_inscription {
+	width: 90%;
+	height: 90%;
+}
+
+#div_image_inscription {
+	margin-left: 4%;
 }

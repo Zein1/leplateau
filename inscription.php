@@ -54,9 +54,14 @@
 	
     </nav>
     
-    <div class="row">
-        <div class="col-lg-12">
-    <form class="inscription">
+    <div class="row page_inscription">
+
+        <div class="col-lg-6" id="div_image_inscription">
+            <img src="image/arrivage-mars-avril-2014.jpg" id="image_inscription">
+        </div>
+
+        <div class="col-lg-5">
+        <form class="inscription">
         
             <p><label for="nom"></label><input type="text" class="taille_input_inscription" name="nom" id="nom" placeholder="Nom" ></p>
             <p><label for="prenom"></label><input type="text" class="taille_input_inscription" name="prenom" id="prenom" placeholder="Prenom" ></p>
@@ -67,14 +72,9 @@
             <p><label for="mdpdeux"></label><input type="text" class="taille_input_inscription" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp"></p>
             <p><label for="mail"></label><input type="text" class="taille_input_inscription" name="mail" id="mail" placeholder="Email" ></p>
             <input type="submit" class="btn btn-red darken-3" id="bouton-connexion" value="Inscription" />
-    </form>
+        </form>
         </div>
     </div>
-
-    <div class="image">
-        <img src="image/arrivage-mars-avril-2014.jpg">
-    </div>
-
     
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
