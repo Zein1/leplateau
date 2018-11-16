@@ -12,7 +12,14 @@ catch(Exception $e)
 		die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 	}
 
-		$bdd->exec('INSERT INTO compte(ID_Compte, identifiant, passwrd, nom, prenom, mail) VALUES(\'\', \'$_POST["identifiant"]\', \'$_POST["mdp"]\', \'$_POST["nom"]\', \'$_POST["prenom"]\', \'$_POST["mail"]\')');
+		$new_auth = $bdd->prepare('INSERT INTO compte(identifiant, passwrd, nom, prenom, mail) VALUES (:id, :mdp, :nom, :prenom, :mail)');
+		$new_auth->execute(array(
+			'id' => $_POST['identifiant'],
+			'mdp' => $_POST['mdp'],
+			'nom' => $_POST['nom'],
+			'prenom' => $_POST['prenom'],
+			'mail' => $_POST['mail']
+			));
 
      	header("Location: accueil_societe.php");
      	exit;
