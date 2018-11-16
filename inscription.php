@@ -13,6 +13,7 @@
 <script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 <script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="accueil_societe.css">
+<script href="inscription.js"></script>
 
 <!--mdbootstrap-->
     <!-- Font Awesome -->
@@ -60,17 +61,21 @@
             <img src="image/arrivage-mars-avril-2014.jpg" id="image_inscription">
         </div>
 
-        <div class="col-lg-5">
-        <form class="inscription">
+        <div  class="col-lg-5">
+        <form action="" method="post" class="inscription">
         
             <p><label for="nom"></label><input type="text" class="taille_input_inscription" name="nom" id="nom" placeholder="Nom" ></p>
+            <div id="error_nom"></div>
             <p><label for="prenom"></label><input type="text" class="taille_input_inscription" name="prenom" id="prenom" placeholder="Prenom" ></p>
+            <div id="error_prenom"></div>
             <p><label for="identifiant"></label><input type="text" class="taille_input_inscription" name="identifiant" id="identifiant" placeholder="Identifiant"></p>
-            <div id="error"></div>
+            <div id="error_identifiant"></div>
             <p><label for="mdp"></label><input type="password" class="taille_input_inscription" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
-            <div id="errordeux"></div>
+            <div id="error_mdp"></div>
             <p><label for="mdpdeux"></label><input type="text" class="taille_input_inscription" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp"></p>
+            <div id="error_mdpdeux"></div>
             <p><label for="mail"></label><input type="text" class="taille_input_inscription" name="mail" id="mail" placeholder="Email" ></p>
+            <div id="error_mail"></div>
             <input type="submit" class="btn btn-red darken-3" id="bouton-connexion" value="Inscription" />
         </form>
         </div>
