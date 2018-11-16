@@ -70,15 +70,6 @@
     </form>
         </div>
     </div>
-
-    
-	
-	
-
-	<!--placeholder requete PHP jeux récents-->
-	<!--placeholder requete PHP jeux + aimés-->
-
-    <!--Footer avec mentions légales, etc...-->
     
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
