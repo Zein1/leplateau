@@ -72,7 +72,7 @@
             <div id="error_identifiant"></div>
             <p><label for="mdp"></label><input type="password" class="taille_input_inscription" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
             <div id="error_mdp"></div>
-            <p><label for="mdpdeux"></label><input type="text" class="taille_input_inscription" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp"></p>
+            <p><label for="mdpdeux"></label><input type="password" class="taille_input_inscription" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp"></p>
             <div id="error_mdpdeux"></div>
             <p><label for="mail"></label><input type="text" class="taille_input_inscription" name="mail" id="mail" placeholder="Email" ></p>
             <div id="error_mail"></div>
