@@ -133,7 +133,9 @@ if ($_GET["chosen_categorie"] == "nouveau")
     ?>
     <div class="row index_entry">
       <div class="col-lg-6 index_image">
+        <a href="./details.php?id=<?php echo $recent_data['ID_Jeu'];?>">
         <img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
+        </a>
       </div>
         <p class="col-lg-6 index_desc">
         <strong>Jeu</strong> : <?php echo $recent_data['nom']; ?><br />
@@ -161,7 +163,9 @@ if ($_GET["chosen_categorie"] == "nouveau")
       ?>
       <div class="row index_entry">
         <div class="col-lg-6 index_image">
+          <a href="./details.php?id=<?php echo $popular_data['ID_Jeu'];?>">
           <img src="<?php echo $popular_data['image'];?>" alt="paper-tales" height="120" width="130"/>
+          </a>
         </div>
           <p class="col-lg-6 index_desc">
           <strong>Jeu</strong> : <?php echo $popular_data['nom']; ?><br />
@@ -189,7 +193,9 @@ if ($_GET["chosen_categorie"] == "nouveau")
           ?>
           <div class="row index_entry">
             <div class="col-lg-6 index_image">
+              <a href="./details.php?id=<?php echo $categorie_data['ID_Jeu'];?>">
               <img src="<?php echo $categorie_data['image'];?>" alt="paper-tales" height="120" width="130"/>
+              </a>
             </div>
               <p class="col-lg-6 index_desc">
               <strong>Jeu</strong> : <?php echo $categorie_data['nom']; ?><br />
