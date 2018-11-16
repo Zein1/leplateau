@@ -267,10 +267,30 @@ $(function(){
 });
 
 
-$('.inscription').submit(function(e) {
-    if ($('#mdp').val() != $('#mdpdeux').val()) {
-        var text = 'Attention, le mot de passe de confirmation est différent du mot de passe !';
-        e.preventDefault();
-        return false;
+$(document).ready(function(){
+    
+    var $mdp = $('#mdp'),
+        $mdpdeux = $('#mdpdeux')
+       
+
+
+$mdpdeux.keyup(function(){
+    if($(this).val() != $mdp.val()){ // si la confirmation est différente du mot de passe
+        $(this).css({ // on rend le champ rouge
+	    borderColor : 'red',
+	    color : 'red'
+        });
+    }
+    else{
+	$(this).css({ // si tout est bon, on le rend vert
+	    borderColor : 'green',
+	    color : 'green'
+	});
     }
 });
+
+});
+
+
+
+
