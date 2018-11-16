@@ -87,7 +87,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a href="inscription.html">
+                        <a href="inscription.php">
                             <input type="button" class="btn btn-indigo darken-1" id="inscription" value="inscription" />
                         </a>
                         <input type="reset" class="btn btn-stylish-color" id="annuler" value="annuler" data-dismiss="modal"/>
