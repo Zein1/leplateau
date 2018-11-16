@@ -35,6 +35,16 @@
 
 <body>
 
+  <?php
+  //SI ON ACCEDE A LA PAGE SANS ENTRER DE VARIABLE $GET_["chosen_categorie"] ON RETOURNE A L'ACCUEIL
+
+  if(empty($_GET["chosen_categorie"])) 
+    { 
+      header("Location: accueil_societe.php");
+      exit; 
+    }
+  ?>
+
 	<!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">

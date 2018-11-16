@@ -57,45 +57,31 @@ nav {
 
 /*CSS BOUTON CONNEXION*/
 #formulaire {
-
-    text-align: center !important;
-
+    text-align: center;
 }
 
 #Connexion {
-
     background-color: white;
-
 }
 
 #annuler {
-
     color: black;
     border-radius: 10px;
-
 }
 
 #inscription {
-
     color: black;
     border-radius: 10px;
-
 }
 
 #bouton-connexion {
-
     border-radius: 10px;
-
 }
 
 #exampleModalLabel {
-
     font-family:"palatino linotype", palatino, serif;
-
 }
 
 #bouton-principal {
-
     border-radius: 10px;
-
 }
