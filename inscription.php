@@ -58,14 +58,14 @@
         <div class="col-lg-12">
     <form class="inscription">
         
-            <p><label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" style="width: 300px; height: 150x;"></p>
-            <p><label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prenom" style="width: 300px; height: 150x;"></p>
-            <p><label for="identifiant"></label><input type="text" name="identifiant" id="identifiant" placeholder="Identifiant" style="width: 300px; height: 150x;"></p>
+            <p><label for="nom"></label><input type="text" class="taille_input_inscription" name="nom" id="nom" placeholder="Nom" ></p>
+            <p><label for="prenom"></label><input type="text" class="taille_input_inscription" name="prenom" id="prenom" placeholder="Prenom" ></p>
+            <p><label for="identifiant"></label><input type="text" class="taille_input_inscription" name="identifiant" id="identifiant" placeholder="Identifiant"></p>
             <div id="error"></div>
-            <p><label for="mdp"></label><input type="password" name="mdp" id="mdp" placeholder="Mot de passe" style="width: 300px; height: 150x;"></p>
+            <p><label for="mdp"></label><input type="password" class="taille_input_inscription" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
             <div id="errordeux"></div>
-            <p><label for="mdpdeux"></label><input type="text" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp" style="width: 300px; height: 150x;"></p>
-            <p><label for="mail"></label><input type="text" name="mail" id="mail" placeholder="Email" style="width: 300px; height: 150x;"></p>
+            <p><label for="mdpdeux"></label><input type="text" class="taille_input_inscription" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp"></p>
+            <p><label for="mail"></label><input type="text" class="taille_input_inscription" name="mail" id="mail" placeholder="Email" ></p>
             <input type="submit" class="btn btn-red darken-3" id="bouton-connexion" value="Inscription" />
     </form>
         </div>
@@ -75,14 +75,6 @@
         <img src="image/arrivage-mars-avril-2014.jpg">
     </div>
 
-    
-	
-	
-
-	<!--placeholder requete PHP jeux récents-->
-	<!--placeholder requete PHP jeux + aimés-->
-
-    <!--Footer avec mentions légales, etc...-->
     
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
