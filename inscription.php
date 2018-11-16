@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="utf-8"/>
-<title>Accueil Le Plateau</title>
+<title>Inscription au Plateau</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
 <link rel="icon" type="image/png" href="image/logoonglet.png"/>
 
