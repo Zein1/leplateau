@@ -55,6 +55,7 @@
     </nav>
     
     <form class="inscription">
+        
             <p><label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" style="width: 300px; height: 150x;"></p>
             <p><label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prenom" style="width: 300px; height: 150x;"></p>
             <p><label for="identifiant"></label><input type="text" name="identifiant" id="identifiant" placeholder="Identifiant" style="width: 300px; height: 150x;"></p>
