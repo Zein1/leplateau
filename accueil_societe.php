@@ -114,13 +114,13 @@
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_recent_games = $bdd->query('SELECT nom, image FROM jeu ORDER BY ID_Jeu DESC LIMIT 0, 2');
+			$query_recent_games = $bdd->query('SELECT nom, image, ID_Jeu FROM jeu ORDER BY ID_Jeu DESC LIMIT 0, 2');
 
 			while ($recent_data = $query_recent_games->fetch())
 			{
 		?>
 				<div class="element_jeu">
-					<a href="#">
+					<a href="./details.php?var1=<?php echo $recent_data['ID_Jeu'];?>">	
 						<h3> <?php echo $recent_data['nom']; ?> </h3>
 						<img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
 					</a>
@@ -135,13 +135,13 @@
 			<article class="col-lg-6">
 				<h2> Les plus populaires </h2>
 		<?php
-			$query_popular_games = $bdd->query('SELECT jeu.nom, jeu.image, AVG(avis.note) FROM jeu INNER JOIN avis ON jeu.ID_Jeu = avis.ID_Jeu GROUP BY jeu.ID_Jeu ORDER BY AVG(avis.note) DESC LIMIT 0, 2');
+			$query_popular_games = $bdd->query('SELECT jeu.nom, jeu.image, jeu.ID_Jeu, AVG(avis.note) FROM jeu INNER JOIN avis ON jeu.ID_Jeu = avis.ID_Jeu GROUP BY jeu.ID_Jeu ORDER BY AVG(avis.note) DESC LIMIT 0, 2');
 
 			while ($popular_data = $query_popular_games->fetch())
 			{
 		?>	
 				<div class="element_jeu">
-					<a href="#">
+					<a href="./details.php?var1=<?php echo $popular_data['ID_Jeu'];?>">
 						<h3> <?php echo $popular_data['nom']; ?> </h3>
 						<img src="<?php echo $popular_data['image'];?>" alt="mysterium" height="120" width="130"/>
 						</a>
