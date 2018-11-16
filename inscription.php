@@ -54,6 +54,8 @@
 	
     </nav>
     
+    <div class="row">
+        <div class="col-lg-12">
     <form class="inscription">
         
             <p><label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom" style="width: 300px; height: 150x;"></p>
@@ -65,8 +67,9 @@
             <p><label for="mdpdeux"></label><input type="text" name="mdpdeux" id="mdpdeux" placeholder="Confirmation du mdp" style="width: 300px; height: 150x;"></p>
             <p><label for="mail"></label><input type="text" name="mail" id="mail" placeholder="Email" style="width: 300px; height: 150x;"></p>
             <input type="submit" class="btn btn-red darken-3" id="bouton-connexion" value="Inscription" />
-
     </form>
+        </div>
+    </div>
 
     
 	
