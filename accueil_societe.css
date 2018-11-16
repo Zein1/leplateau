@@ -56,27 +56,46 @@ nav {
 }
 
 /*CSS BOUTON CONNEXION*/
-.oui {    
-	text-align: center;
+#formulaire {
+
+    text-align: center;
+
 }
 
-#Connexion {    
-	background-color: white;
+#Connexion {
+
+    background-color: white;
+
 }
 
-#annuler {    
-	color: black;
-	border-radius: 10px;
+#annuler {
+
+    color: black;
+    border-radius: 10px;
+
 }
 
-#bouton-connexion {    
-	border-radius: 10px;
+#inscription {
+
+    color: black;
+    border-radius: 10px;
+
 }
 
-#exampleModalLabel {    
-	font-family:"palatino linotype", palatino, serif;
+#bouton-connexion {
+
+    border-radius: 10px;
+
 }
 
-#bouton-principal {    
-	border-radius: 10px;
+#exampleModalLabel {
+
+    font-family:"palatino linotype", palatino, serif;
+
+}
+
+#bouton-principal {
+
+    border-radius: 10px;
+
 }
