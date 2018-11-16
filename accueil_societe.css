@@ -58,7 +58,7 @@ nav {
 /*CSS BOUTON CONNEXION*/
 #formulaire {
 
-    text-align: center;
+    text-align: center !important;
 
 }
 
