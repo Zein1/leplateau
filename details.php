@@ -109,17 +109,19 @@
 			</article>	
 		</div>
 		<div class="row">
+			<article class="col-lg-2">
+			</article>
 			<article class="col-lg-4">
 				<br/><br/>
 					<img src="<?php echo $recent_data['image'];?>" alt="<?php echo $recent_data['nom'];?>" height="300" width="320"/>
 			</article>
-			<article class="col-lg-6">
+			<article class="col-lg-4">
 				<br/><br/><br/>
 				<p>Catégorie : <?php echo $recent_data['catégorie']; ?> <br/>
 				de <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs']; ?> Joueurs <br/>
 				Prix : <?php echo $recent_data['prix']; ?> Euros <br/>
 				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/5 <br/> <br/>
-				"<?php echo $recent_data['description']; ?>"
+				<i>"<?php echo $recent_data['description']; ?>"</i>
 				</p>
 			</article>
 			<article class="col-lg-2">
