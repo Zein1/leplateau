@@ -71,6 +71,10 @@
         </div>
     </div>
 
+    <div class="image">
+        <img src="image/arrivage-mars-avril-2014.jpg">
+    </div>
+
     
 	
 	
