@@ -85,3 +85,10 @@ nav {
 #bouton-principal {
     border-radius: 10px;
 }
+
+/*PAGE INSCRIPTION*/
+
+.inscription {    
+   float: right;
+   padding: 5%;
+}

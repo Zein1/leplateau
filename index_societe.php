@@ -38,7 +38,7 @@
   <?php
   //SI ON ACCEDE A LA PAGE SANS ENTRER DE VARIABLE $GET_["chosen_categorie"] ON RETOURNE A L'ACCUEIL
 
-  if(empty($_GET["chosen_categorie"])) 
+  if(empty($_GET["chosen_categorie"]))
     { 
       header("Location: accueil_societe.php");
       exit; 
