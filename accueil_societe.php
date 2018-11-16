@@ -120,7 +120,7 @@
 			{
 		?>
 				<div class="element_jeu">
-					<a href="./details.php?var1=<?php echo $recent_data['ID_Jeu'];?>">	
+					<a href="./details.php?id=<?php echo $recent_data['ID_Jeu'];?>">	
 						<h3> <?php echo $recent_data['nom']; ?> </h3>
 						<img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
 					</a>
@@ -141,7 +141,7 @@
 			{
 		?>	
 				<div class="element_jeu">
-					<a href="./details.php?var1=<?php echo $popular_data['ID_Jeu'];?>">
+					<a href="./details.php?id=<?php echo $popular_data['ID_Jeu'];?>">
 						<h3> <?php echo $popular_data['nom']; ?> </h3>
 						<img src="<?php echo $popular_data['image'];?>" alt="mysterium" height="120" width="130"/>
 						</a>
