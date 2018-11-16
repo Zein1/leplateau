@@ -90,7 +90,7 @@
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, description, image FROM jeu WHERE ID_Jeu = '.$_GET["var1"]);
+			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, description, image FROM jeu WHERE ID_Jeu = '.$_GET["id"]);
 
 			while ($recent_data = $query_game->fetch())
 			{
