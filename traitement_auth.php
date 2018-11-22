@@ -14,11 +14,12 @@ catch(Exception $e)
 
 	if ($_POST['mdp'] == $_POST['mdpdeux'] )
 		{
+			$pass = password_hash($_POST['nom'], PASSWORD_DEFAULT);
 			$new_auth = $bdd->prepare('INSERT INTO compte(identifiant, passwrd, nom, prenom, mail) VALUES (:id, :mdp, :nom, :prenom, :mail)');
 			$new_auth->execute(array(
 				'id' => $_POST['identifiant'],
 				'mdp' => $_POST['mdp'],
-				'nom' => $_POST['nom'],
+				'nom' => $pass,
 				'prenom' => $_POST['prenom'],
 				'mail' => $_POST['mail']
 				));

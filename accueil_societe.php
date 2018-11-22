@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+<!DOCTYPE html>
 
 <html>
 
@@ -54,7 +57,7 @@
 		<button type="submit"><img src="image/loupe.jpg" alt="search" width="20px" height="20px" class="rechercher"></button>
 	</div>
 	</form>
-
+	
 		<!--BOUTON CONNEXION-->
 	   <!-- Button trigger modal -->
 	   <button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal">
