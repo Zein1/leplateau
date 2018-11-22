@@ -20,7 +20,7 @@ $(function(){
 
 
                 // Verification du champs Pseudo a l'envoi du formulaire
-    $("#formulaire").submit(function(){
+    $(".formulaire").submit(function(){
         
         var nb_caractere = $("#name").val().length;
         
@@ -65,7 +65,7 @@ $(function(){
 
 
                 // Verification du champs Pseudo a l'envoi du formulaire
-    $("#formulaire").submit(function(){
+    $(".formulaire").submit(function(){
         
         var nb_caractere = $("#mdp").val().length;
         
