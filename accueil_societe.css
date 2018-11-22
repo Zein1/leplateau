@@ -25,6 +25,10 @@ h2 {
 	color: rgb(218, 9, 15);
 }
 
+.rechercher {
+	opacity: 0.7;
+}
+
 /*CSS PAGE INDEX*/
 .index_entry {
 	margin-bottom: 1%;
