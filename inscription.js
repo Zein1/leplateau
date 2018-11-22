@@ -132,94 +132,7 @@ $(function(){
 });
 
 
-$(function(){ 
-                            
-    // Verification du champs Pseudo en cas de changement de la valeur
-                $("#mdp").change( function(){
 
-        var x = $(this).val().length;
-        $("#error_mdp").empty().removeClass("error");
-    
-        if(x<8){
-            
-            if(x==0){
-                $(this).empty();
-            }else{
-                $("#error_mdp").append("Le mot de passe doit être de 8 caractères minimum").addClass("error");
-            }
-            
-        }
-        
-    });
-
-
-                // Verification du champs Pseudo a l'envoi du formulaire
-    $("form").submit(function(){
-        
-        var nb_caractere = $("#mdp").val().length;
-        
-        if(nb_caractere<8){
-            
-            if(nb_caractere==0){
-                var txt="Le champ 'mot de passe' est vide!";
-            }else{
-                var txt="Le mot de passe est trop court";
-            }
-            
-            $("#error_mdp").empty().append(txt).addClass("error");
-            return false;
-
-        }else{
-            return true;
-        }
-    });
-    
-});
-
-
-$(function(){ 
-                            
-    // Verification du champs Pseudo en cas de changement de la valeur
-                $("#mdpdeux").change( function(){
-
-        var x = $(this).val().length;
-        $("#error_mdpdeux").empty().removeClass("error");
-    
-        if(x<8){
-            
-            if(x==0){
-                $(this).empty();
-            }else{
-                $("#error_mdpdeux").append("Les prénoms à une lettre ça n'existe pas").addClass("error");
-            }
-            
-        }
-        
-    });
-
-
-                // Verification du champs Pseudo a l'envoi du formulaire
-    $("form").submit(function(){
-        
-        var nb_caractere = $("#mdpdeux").val().length;
-        
-        if(nb_caractere<2){
-            
-            if(nb_caractere==0){
-                var txt="Le champ 'nom' est vide!";
-            }else{
-                var txt="Les prénoms à une lettre ça n'existe pas";
-            }
-            
-            $("#error_mdpdeux").empty().append(txt).addClass("error");
-            return false;
-
-        }else{
-            return true;
-        }
-    });
-    
-});
 
 
 $(function(){ 
@@ -271,14 +184,103 @@ $(document).ready(function(){
     
     var $mdp = $('#mdp'),
         $mdpdeux = $('#mdpdeux')
+
+        $(function(){ 
+                            
+            // Verification du champs Pseudo en cas de changement de la valeur
+                        $("#mdp").change( function(){
+        
+                var x = $(this).val().length;
+                $("#error_mdp").empty().removeClass("error");
+            
+                if(x<8){
+                    
+                    if(x==0){
+                        $(this).empty();
+                    }else{
+                        $("#error_mdp").append("Le mot de passe doit être de 8 caractères minimum").addClass("error");
+                    }
+                    
+                }
+                
+            });
+        
+        
+                        // Verification du champs Pseudo a l'envoi du formulaire
+            $("form").submit(function(){
+                
+                var nb_caractere = $("#mdp").val().length;
+                
+                if(nb_caractere<8 && nb_caractère>20){
+                    
+                    if(nb_caractere==0){
+                        var txt="Le champ 'mot de passe' est vide!";
+                    }else{
+                        var txt="Le mot de passe est trop court";
+                    }
+                    
+                    $("#error_mdp").empty().append(txt).addClass("error");
+                    return false;
+        
+                }else{
+                    return true;
+                }
+            });
+            
+        });
+        
+        
+        $(function(){ 
+                                    
+            // Verification du champs Pseudo en cas de changement de la valeur
+                        $("#mdpdeux").change( function(){
+        
+                var x = $(this).val().length;
+                $("#error_mdpdeux").empty().removeClass("error");
+            
+                if(x<8){
+                    
+                    if(x==0){
+                        $(this).empty();
+                    }else{
+                        $("#error_mdpdeux").append("Les prénoms à une lettre ça n'existe pas").addClass("error");
+                    }
+                    
+                }
+                
+            });
+        
+        
+                        // Verification du champs Pseudo a l'envoi du formulaire
+            $("form").submit(function(){
+                
+                var nb_caractere = $("#mdpdeux").val().length;
+                
+                if(nb_caractere<2){
+                    
+                    if(nb_caractere==0){
+                        var txt="Le champ 'nom' est vide!";
+                    }else{
+                        var txt="Les prénoms à une lettre ça n'existe pas";
+                    }
+                    
+                    $("#error_mdpdeux").empty().append(txt).addClass("error");
+                    return false;
+        
+                }else{
+                    return true;
+                }
+            });
+            
+        });
        
 
 
 $mdpdeux.keyup(function(){
-    if($(this).val() != $mdp.val()){ // si la confirmation est différente du mot de passe
+    if($(this).val() != $mdp.val()){ 
         $(this).css({ // on rend le champ rouge
 	    borderColor : 'red',
-	    color : 'red'
+        color : 'red'
         });
     }
     else{
@@ -290,7 +292,3 @@ $mdpdeux.keyup(function(){
 });
 
 });
-
-
-
-
