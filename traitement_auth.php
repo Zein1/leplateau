@@ -12,15 +12,29 @@ catch(Exception $e)
 		die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 	}
 
-		$new_auth = $bdd->prepare('INSERT INTO compte(identifiant, passwrd, nom, prenom, mail) VALUES (:id, :mdp, :nom, :prenom, :mail)');
-		$new_auth->execute(array(
-			'id' => $_POST['identifiant'],
-			'mdp' => $_POST['mdp'],
-			'nom' => $_POST['nom'],
-			'prenom' => $_POST['prenom'],
-			'mail' => $_POST['mail']
-			));
+	if ($_POST['mdp'] == $_POST['mdpdeux'] )
+		{
+			$new_auth = $bdd->prepare('INSERT INTO compte(identifiant, passwrd, nom, prenom, mail) VALUES (:id, :mdp, :nom, :prenom, :mail)');
+			$new_auth->execute(array(
+				'id' => $_POST['identifiant'],
+				'mdp' => $_POST['mdp'],
+				'nom' => $_POST['nom'],
+				'prenom' => $_POST['prenom'],
+				'mail' => $_POST['mail']
+				));
 
-     	header("Location: accueil_societe.php");
-     	exit;
+	     	header("Location: accueil_societe.php");
+	     	exit;
+	     }
+
+	else
+		{
+			?>
+
+			<script> alert("Les mots de passes ne sont pas identiques !"); </script>
+			
+			<?php
+			header("Location: inscription.php");
+			exit;
+		}
 ?>
