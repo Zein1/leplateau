@@ -48,7 +48,7 @@
 			<a href="index_societe.php?chosen_categorie=nouveau" class="nav-link" id="nouveautes"><li class="nav-item">Nouveautés</li></a>
 			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link" id="coeur"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
-	<form action="lol/details.php" method="post" class="form-inline">
+	<form action="index_societe.php" method="post" class="form-inline">
 	<div class="form-group">
 		<input type="search" id="rechercher" name="rechercher" placeholder="Rechercher...">
 		<button type="submit"><img src="image/loupe.jpg" alt="search" width="20px" height="20px" class="rechercher"></button>

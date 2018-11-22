@@ -36,9 +36,9 @@
 <body>
 
   <?php
-  //SI ON ACCEDE A LA PAGE SANS ENTRER DE VARIABLE $GET_["chosen_categorie"] ON RETOURNE A L'ACCUEIL
+  //SI ON ACCEDE A LA PAGE SANS PASSER PAR LE MENU OU PAR UNE RECHERCHE ON RETOURNE A L'ACCUEIL
 
-  if(empty($_GET["chosen_categorie"]))
+  if(empty($_GET["chosen_categorie"]) && empty($_POST["rechercher"]))
     { 
       header("Location: accueil_societe.php");
       exit; 
@@ -121,9 +121,38 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 }
 
+//ON REGARDE SI L'UTILISATEUR A ENTRE UNE RECHERCHE
+
+if (!empty($_POST["rechercher"]))
+  {
+    $query_user_request = $bdd->query('SELECT * FROM jeu WHERE nom LIKE "%' . $_POST["rechercher"] . '%" ');
+
+    while ($user_request = $query_user_request->fetch())
+      {
+        ?>
+        <div class="row index_entry">
+          <div class="col-lg-6 index_image">
+            <a href="./details.php?id=<?php echo $user_request['ID_Jeu'];?>">
+            <img src="<?php echo $user_request['image'];?>" alt="paper-tales" height="120" width="130"/>
+            </a>
+      </div>
+        <p class="col-lg-6 index_desc">
+          <strong>Jeu</strong> : <?php echo $user_request['nom']; ?><br />
+          <strong>Joueurs</strong> : <?php echo $user_request['nbMinJoueurs']; ?> à <?php echo $user_request['nbMaxJoueurs'];?>  <br />
+          <strong>Note</strong> : <?php echo $user_request['noteRedac']; ?><br />
+          <strong>Prix</strong> : <?php echo $user_request['prix']; ?>€
+       </p>
+    </div>
+
+        <?php
+      }
+
+      $query_user_request->closeCursor();
+  }
+
 //SI CLIQUE "NOUVEAUTE" ON AFFICHE TOUS LES JEUX PAR DATE D'ENTREE DANS LA BDD
 
-if ($_GET["chosen_categorie"] == "nouveau")
+else if ($_GET["chosen_categorie"] == "nouveau")
   {
 
       $query_recent_games = $bdd->query('SELECT * FROM jeu ORDER BY ID_Jeu DESC');
