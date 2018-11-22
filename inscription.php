@@ -83,6 +83,19 @@
     
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
+    <!--MESSAGE D'ERREUR EN CAS DE MDP DIFFERENTS-->
+
+    <?php
+        if (!empty($_GET["warning_mdp"]) && $_GET["warning_mdp"] == "triggered")
+        {
+    ?>
+    <script> 
+        alert("Veuillez entrer deux mots de passe identiques."); 
+    </script>
+    <?php
+        }
+    ?>
+
 </body>
 
 </html>
