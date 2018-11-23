@@ -101,7 +101,7 @@ session_start();
 
 
 
-	<!--PARTIE CENTRALE DERNIERS JEUX SORTIS & COUPS DE COEUR-->
+	<!--PARTIE CENTRALE DETAILS JEUX -->
 
 	<section>
 		<div class="row">
@@ -148,8 +148,6 @@ session_start();
 			$query_game->closeCursor();
 		?>
 	</section>
-	<!--placeholder requete PHP jeux récents-->
-	<!--placeholder requete PHP jeux + aimés-->
 
 	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>

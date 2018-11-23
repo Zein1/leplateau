@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -8,15 +8,14 @@ session_start();
 <head>
 
 <meta charset="utf-8"/>
-<title>Accueil Le Plateau</title>
+<title>Index catégories</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
 <link rel="icon" type="image/png" href="image/logoonglet.png"/>
 
-<link href="jquery_bootstrap/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
-<script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
-<script type="application/javascript" src="jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
+<link href="../jquery_bootstrap/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="../jquery_bootstrap/bootstrap-4.1.3-dist/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="accueil_societe.css">
-<script src="connexion.js"></script>
 
 <!--mdbootstrap-->
     <!-- Font Awesome -->
@@ -39,6 +38,16 @@ session_start();
 
 <body>
 
+  <?php
+  //SI ON ACCEDE A LA PAGE SANS PASSER PAR LE MENU OU PAR UNE RECHERCHE ON RETOURNE A L'ACCUEIL
+
+  if(empty($_GET["chosen_categorie"]) && empty($_POST["rechercher"]))
+    { 
+      header("Location: accueil_societe.php");
+      exit; 
+    }
+  ?>
+
 	<!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
    	<img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
@@ -51,22 +60,13 @@ session_start();
 			<a href="index_societe.php?chosen_categorie=nouveau" class="nav-link" id="nouveautes"><li class="nav-item">Nouveautés</li></a>
 			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link" id="coeur"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
-	<form action="index_societe.php" method="post" class="form-inline">
-	<div class="form-group">
-		<input type="search" id="rechercher" name="rechercher" placeholder="Rechercher...">
-		<button type="submit"><img src="image/loupe.jpg" alt="search" width="20px" height="20px" class="rechercher"></button>
-	</div>
+	<form class="form-inline">
+		<input type="text" action="index_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
 	</form>
-	
-		<!--BOUTON CONNEXION-->
 
-	<?php
-	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-   echo 'Bonjour '.$_SESSION['pseudo'];
-	} else {
-	?>
-	   <!-- Button trigger modal -->
-	   <button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal">
+	<!--BOUTON CONNEXION-->
+	<!-- Button trigger modal -->
+  <button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal">
         Connexion
     </button>
 
@@ -82,14 +82,14 @@ session_start();
                     </button>
                 </div>
 
-                <form action="authentification.php" method="post" class="formulaire">
+                <form action="" method="post">
                     <div class="modal-body">
 
                         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
 
 
-                        <div>
+                        <div id="formulaire">
 
                             <p><label for="name"></label><input type="text" name="name" id="name" placeholder="Identifiant"></p>
                             <div id="error"></div>
@@ -109,75 +109,19 @@ session_start();
             </div>
         </div>
     </div>
-    <?php
-    	} 
-    ?>
-
     </div>
 	</nav>
-	
-	<!--PARTIE CENTRALE DERNIERS JEUX SORTIS & COUPS DE COEUR-->
-	<section>
-		<div class="row">
-			<article class="col-lg-6">
-				<h2> Dernières sorties </h2>
-		<?php 
-			try
-			{
-				$bdd = new PDO('mysql:host=localhost;dbname=leplateau;charset=utf8', 'root', '');	// On se connecte à MySQL
-			}
-			catch(Exception $e)
-			{
-			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
-			}
 
-			$query_recent_games = $bdd->query('SELECT nom, image, ID_Jeu FROM jeu ORDER BY ID_Jeu DESC LIMIT 0, 2');
+<!--RESULTATS DE RECHERCHE-->
 
-			while ($recent_data = $query_recent_games->fetch())
-			{
-		?>
-				<div class="element_jeu">
-					<a href="./details.php?id=<?php echo $recent_data['ID_Jeu'];?>">	
-						<h3> <?php echo $recent_data['nom']; ?> </h3>
-						<img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
-					</a>
-				</div>
-		<?php
-			}
 
-			$query_recent_games->closeCursor();
-		?>
-			</article>
-				
-			<article class="col-lg-6">
-				<h2> Les plus populaires </h2>
-		<?php
-			$query_popular_games = $bdd->query('SELECT jeu.nom, jeu.image, jeu.ID_Jeu, AVG(avis.note) FROM jeu INNER JOIN avis ON jeu.ID_Jeu = avis.ID_Jeu GROUP BY jeu.ID_Jeu ORDER BY AVG(avis.note) DESC LIMIT 0, 2');
-
-			while ($popular_data = $query_popular_games->fetch())
-			{
-		?>	
-				<div class="element_jeu">
-					<a href="./details.php?id=<?php echo $popular_data['ID_Jeu'];?>">
-						<h3> <?php echo $popular_data['nom']; ?> </h3>
-						<img src="<?php echo $popular_data['image'];?>" alt="mysterium" height="120" width="130"/>
-						</a>
-				</div>
-		<?php
-			}
-
-			$query_popular_games->closeCursor();
-		?>
-			</article>
-		</div>
-	</section>
 
 	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<footer>Copyright © 2018 leplateau.com - <a href="#">Mentions légales</a> - <a href="#">Conditions générales de vente</a> - <a href="#">Contactez-nous</a></footer>
 
-	<!--SCRIPTS JQUERY-->
-	<script src="node_modules/jquery/dist/jquery.min.js"> </script>
-	<script src="accueil_societe.js"> </script>
+  <!--SCRIPTS JQUERY-->
+  <script src="node_modules/jquery/dist/jquery.min.js"> </script>
+  <script src="accueil_societe.js"> </script>
 
 </body>
 
