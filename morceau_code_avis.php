@@ -8,8 +8,18 @@
 	<body>
 
 		<h2> Laissez un avis ! </h2>
-		<form action="avis.php">
-			<textarea rows="4" cols="50"> </textarea>
+		<form action="traitement_avis.php?id=$_GET['id']">
+			<textarea name="avis" id="avis" rows="4" cols="50"> </textarea> <br/>
+			<label for="note"> Note: </label>
+				<select name="note" id="note">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			<br/>
+			<input type="submit" value="Envoyer">
 		</form>
 
 		<?php
@@ -22,7 +32,8 @@
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_user_desc = $bdd->query('SELECT avis.ID_Compte, avis.ID_jeu, avis.description, avis.note, compte.prenom FROM avis INNER JOIN compte ON avis.ID_Compte = compte.ID_Compte ORDER BY avis.ID_Compte DESC');
+			$query_user_desc = $bdd->prepare('SELECT avis.ID_Compte, avis.ID_jeu, avis.description, avis.note, compte.prenom FROM avis INNER JOIN compte ON avis.ID_Compte = compte.ID_Compte WHERE avis.ID_Jeu = ? ORDER BY avis.ID_Compte DESC');
+			$query_user_desc->execute(array($_GET["id"]));
 
 				while ($user_desc = $query_user_desc->fetch())
 				{
