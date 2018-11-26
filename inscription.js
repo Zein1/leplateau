@@ -165,15 +165,22 @@ $(function(){
             
             if(nb_caractere==0){
                 var txt="Le champ 'mail' est vide!";
-            }else{
+            }
+            else{
                 var txt="Les prénoms à une lettre ça n'existe pas";
             }
             
             $("#error_mail").empty().append(txt).addClass("error");
             return false;
 
-        }else{
-            return true;
+        }
+        else{
+            if (bonmail($("#mail").val())){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     });
     
@@ -221,10 +228,11 @@ $(document).ready(function(){
                     
                     $("#error_mdp").empty().append(txt).addClass("error");
                     return false;
-        
-                }else{
+                }
+                else{
                     return true;
                 }
+               
             });
             
         });
@@ -293,3 +301,14 @@ $mdpdeux.keyup(function(){
 });
 
 });
+
+function bonmail(mailteste) { //teste si l'email ressemble à une adresse mail
+   var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+
+   if(reg.test(mailteste)) {
+       return true;
+   }
+   else {
+       return false;
+   }
+}

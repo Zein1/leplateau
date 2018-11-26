@@ -62,10 +62,7 @@
 	<?php
 	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
    echo '<p id="bonjour">'.$_SESSION['pseudo'];
-   echo ' <button type="button" class="btn btn-blue darken-4 btn-sm" id="deconnexion" data-toggle="modal" data-target="#basicExampleModal"><a href="./logout.php">
-			   Log out
-			</a>
-		  </button>';
+   echo '<a href="logout.php"><img id="power" src="image\power-button-155491_960_720.png"></a>';
 	} else {
 	?>
 	   <!-- Button trigger modal -->

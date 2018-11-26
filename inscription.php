@@ -49,7 +49,8 @@
 			<a href="algo_categories_societe.php?chosen_categorie=coeur" class="nav-link"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
 	<form class="form-inline">
-		<input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+        <input type="text" action="algo_categories_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+        <button type="submit"><img src="image/loupe.jpg" alt="search" width="20px" height="20px" class="rechercher"></button>
 	</form>
 
 	

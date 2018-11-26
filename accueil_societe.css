@@ -116,15 +116,13 @@ nav {
 
 /* Bouton déconnexion */
 
-#deconnexion {
-	border-radius: 10px;
-	width: 75px;
-	font-size: 11px;
-	margin-right: 0%;
-}
-
 #bonjour {
 	color: white;
-	font-size: 15px;
-	
+	font-size: 20px;
+	margin-top: 15px;
+}
+
+#power {
+	height: 50px;
+	width: 50px;
 }

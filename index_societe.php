@@ -60,17 +60,15 @@ session_start();
 			<a href="index_societe.php?chosen_categorie=coeur" class="nav-link" id="coeur"><li class="nav-item">Coups de coeur</li></a>
 		</ul>
 	<form class="form-inline">
-		<input type="text" action="index_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+    <input type="text" action="index_societe" id="rechercher" name="rechercher" placeholder="Rechercher..."> 
+    <button type="submit"><img src="image/loupe.jpg" alt="search" width="20px" height="20px" class="rechercher"></button>
 	</form>
 
 	<!--BOUTON CONNEXION-->
   <?php
   if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
     echo '<p id="bonjour">'.$_SESSION['pseudo'];
-    echo ' <button type="button" class="btn btn-blue darken-4 btn-sm" id="deconnexion" data-toggle="modal" data-target="#basicExampleModal"><a href="./logout.php">
-          Log out
-       </a>
-       </button>';
+    echo '<a href="logout.php"><img id="power" src="image\power-button-155491_960_720.png"></a>';
   } else {
   ?>
 	<!-- Button trigger modal -->
