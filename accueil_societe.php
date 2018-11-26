@@ -1,12 +1,11 @@
-﻿<?php
-session_start();
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 
 <head>
-
+<?php
+	session_start();
+?>
 <meta charset="utf-8"/>
 <title>Accueil Le Plateau</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
@@ -63,6 +62,7 @@ session_start();
 	<?php
 	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
    echo 'Bonjour '.$_SESSION['pseudo'];
+   echo '<a href="./logout.php"> Deconexion </a>';
 	} else {
 	?>
 	   <!-- Button trigger modal -->

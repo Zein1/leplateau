@@ -1,12 +1,11 @@
-﻿<?php
-session_start();
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 
 <head>
-
+<?php
+session_start();
+?>
 <meta charset="utf-8"/>
 <title>Details</title>
 <meta name="description" content="Le plateau note les jeux de sociétés récents et anciens."/>
@@ -55,6 +54,12 @@ session_start();
 	</form>
 
 		<!--BOUTON CONNEXION-->
+		<?php
+	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+   echo 'Bonjour '.$_SESSION['pseudo'];
+   echo '<a href="./logout.php"> Deconexion </a>';
+	} else {
+	?>
 	   <!-- Button trigger modal -->
 	<button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal"> Connexion </button>      
 	<!-- Modal -->
@@ -80,6 +85,9 @@ session_start();
            </div>
          </div>
        </div>
+        <?php
+    	}
+    	?>
      </div>
 	</nav>
 	

@@ -5,6 +5,7 @@
 <head>
 <?php 
   session_start();
+  header("refresh:5;url=accueil_societe.php");
 ?>
 <meta charset="utf-8"/>
 <title>Accueil Le Plateau</title>
@@ -37,7 +38,11 @@
 </head>
 
 <body>
-
+<?php
+  $_SESSION['id'] = NULL;
+  $_SESSION['pseudo'] = NULL;
+  session_destroy();
+?>
   <!--NAVBAR-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
     <img src="image/jeurouge.png" alt="logo" height="60" width="65" class="navbar-brand">
@@ -58,32 +63,6 @@
   </form>
   
     <!--BOUTON CONNEXION-->
-      <?php
-        
-        //  Récupération de l'utilisateur et de son pass hashé
-        $bdd = new PDO('mysql:host=localhost;dbname=leplateau;charset=utf8', 'root', '');
-        $req = $bdd->prepare('SELECT identifiant, passwrd, ID_Compte FROM compte WHERE identifiant = :ident');
-        $req->execute(array(
-            'ident' => $_POST["name"]));
-        $resultat = $req->fetch();
-
-        // Comparaison du pass envoyé via le formulaire avec la base
-        $isPasswordCorrect = password_verify($_POST['mdp'], $resultat['passwrd']);
-
-        if ($resultat)
-        {
-            if ($isPasswordCorrect) 
-            {
-                $_SESSION['id'] = $resultat['ID_Compte'];
-                $_SESSION['pseudo'] = $_POST["name"];
-            }
-        }
-
-        if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-        echo 'Bonjour '.$_SESSION['pseudo'];
-        echo '<a href="./logout.php"> Deconexion </a>';
-        } else {
-  ?>
      <!-- Button trigger modal -->
      <button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal">
         Connexion
@@ -128,9 +107,7 @@
             </div>
         </div>
     </div>
-        <?php
-      } 
-    ?>
+
     </div>
   </nav>
   
@@ -141,20 +118,9 @@
       </article>
       <article class="col-lg-4">
         <?php
-        //  Récupération de l'utilisateur et de son pass hashé
-        if (!$resultat)
-        {
-            echo 'Mauvais identifiant ou mot de passe';
-        }
-        else
-        {
-            if ($isPasswordCorrect) {
-                echo 'Vous êtes connecté !';
-            }
-            else {
-                echo 'Mauvais identifiant ou mot de passe !';
-            }
-        }
+          echo 'Vous vous êtes déconnecté';
+          echo '</br>';
+          echo "Redirection vers l'acceuil dans moins de 5 secondes ..."; 
         ?>
       </article>
       <article class="col-lg-4">
