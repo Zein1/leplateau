@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 15 nov. 2018 à 15:37
+-- Généré le :  lun. 26 nov. 2018 à 11:52
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -54,21 +54,28 @@ INSERT INTO `avis` (`ID_Compte`, `ID_Jeu`, `description`, `note`) VALUES
 
 CREATE TABLE `compte` (
   `ID_Compte` int(11) NOT NULL,
-  `passwrd` varchar(15) DEFAULT NULL,
+  `passwrd` varchar(255) DEFAULT NULL,
   `nom` varchar(30) DEFAULT NULL,
   `prenom` varchar(30) DEFAULT NULL,
-  `age` varchar(30) DEFAULT NULL,
-  `sexe` int(1) DEFAULT NULL,
-  `mail` varchar(40) NOT NULL
+  `mail` varchar(40) NOT NULL,
+  `identifiant` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`ID_Compte`, `passwrd`, `nom`, `prenom`, `age`, `sexe`, `mail`) VALUES
-(1, 'mdp', 'Lalane', 'Francis', '45', 1, 'francis.lalane@funmail.com'),
-(2, 'mdp2', 'Lestylo', 'Marine', '59', 0, 'vivelafrance@gmail.com');
+INSERT INTO `compte` (`ID_Compte`, `passwrd`, `nom`, `prenom`, `mail`, `identifiant`) VALUES
+(1, 'mdp', 'Lalane', 'Francis', 'francis.lalane@funmail.com', ''),
+(2, 'mdp2', 'Lestylo', 'Marine', 'vivelafrance@gmail.com', ''),
+(3, 'blablabla', 'Emma', 'Karena', 'emakaren@a.lol', ''),
+(4, 'azedsqwxc123', NULL, 'Ololololo', 'blablabla@gmail.bite', 'jtebaizz'),
+(5, 'pmloikjuyh1', '$2y$10$NjnqxqYm1lYn9fJ8Z/mr/Om', 'fepzokpekùpsoe', 'blablabla@gmail.bite', 'zefpokeokfoaezk'),
+(6, 'wxcvbnbvcxw', '$2y$10$aDW3nPI3LtEsEPAZUuFMRO3', 'fp^kfoazoj,fipoeqjf', 'penis@gmail.bite', 'ezfpofezkpzejfoo'),
+(7, '$2y$10$eRFWIg5g8UuMHN/CPpp6keBHB/.5GzNqaZtQDhZCvnXnUuIBoyOvq', 'baaizbiiea', 'ijoouioiuhiuh', 'penis@gmail.bite', 'uhihunljhlk'),
+(8, '$2y$10$6zoc5GoJ/mDDPoBcZwXTmOEz6svTFea3HBJSi7aKnclgvwNGbVKT2', 'ijofoeisjfoeifsj', 'huoiuihiou', 'dzjdzjio@zdijoizdjdz.di', 'hiouhiuhiouh'),
+(9, '$2y$10$JnaS/MPIMT4cHSqGkBcXweDLXKt.cvTWxESrY07YtUTcF.VEtPva2', 'delaval', 'clement', 'blablabla@gmail.bi', 'delclemdu31'),
+(10, '$2y$10$1ebg5QHjsQmRyGjwFIhZB.AvbhLhYUC.5RaTS1C/YODQmi522ZB9i', 'Lalalla', 'zoidaz', 'bastien.larrouture@gmail.com', 'azazeaze');
 
 -- --------------------------------------------------------
 
@@ -85,6 +92,7 @@ CREATE TABLE `jeu` (
   `catégorie` varchar(30) DEFAULT NULL,
   `image` varchar(250) NOT NULL,
   `testRedac` text NOT NULL,
+  `description` text NOT NULL,
   `ID_Jeu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,13 +100,13 @@ CREATE TABLE `jeu` (
 -- Déchargement des données de la table `jeu`
 --
 
-INSERT INTO `jeu` (`nom`, `prix`, `nbMinJoueurs`, `noteRedac`, `nbMaxJoueurs`, `catégorie`, `image`, `testRedac`, `ID_Jeu`) VALUES
-('Paper Tales', 40, 2, 16, 4, 'Stratégie', 'image/paper-tales.jpg', '', 1),
-('Mysterium', 35, 2, 18, 7, 'Ambiance', 'image/mysterium.jpg', '', 2),
-('Secrets', 20, 4, 14, 8, 'Stratégie', 'image/secrets.jpg', '', 3),
-('Citadelles', 22, 2, 17, 8, 'Stratégie', 'image/citadelles.png', '', 4),
-('Smash up', 17, 2, 11, 4, 'Cartes', 'image/smash-up-vf.jpg', '', 5),
-('Jenga', 20, 1, 12, 10, 'Adresse', 'image/jenga.jpg', '', 6);
+INSERT INTO `jeu` (`nom`, `prix`, `nbMinJoueurs`, `noteRedac`, `nbMaxJoueurs`, `catégorie`, `image`, `testRedac`, `description`, `ID_Jeu`) VALUES
+('Paper Tales', 40, 2, 16, 4, 'Stratégie', 'image/paper-tales.jpg', '<iuoehfu< uio<ehfiu<e eh h<e hoiuh iuo< heiouheiuofhi<eousfh zelkhgliuhqgho ij fm<joifms <iuoehfu< uio<ehfiu<e eh h<e hoiuh iuo< heiouheiuofhi<eousfh zelkhgliuhqgho ij fm<joifms <iuoehfu< uio<ehfiu<e eh h<e hoiuh iuo< heiouheiuofhi<eousfh zelkhgliuhqgho ij fm<joifms <iuoehfu< uio<ehfiu<e eh h<e hoiuh iuo< heiouheiuofhi<eousfh zelkhgliuhqgho ij fm<joifms <iuoehfu< uio<ehfiu<e eh h<e hoiuh iuo< heiouheiuofhi<eousfh zelkhgliuhqgho ij fm<joifms ', '', 1),
+('Mysterium', 35, 2, 18, 7, 'Ambiance', 'image/mysterium.jpg', 'aaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aa aaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aaaaaaaa aaaaaaaaaaaaa  a a a a   a aa aaa  aaaa aaa aa aa a aaa a aa aa', '', 2),
+('Secrets', 20, 4, 14, 8, 'Stratégie', 'image/secrets.jpg', 'bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb bbbbbb bb b bb  b bbbb bbbbr bbbb bbb bbbbb bb bbb bbb ', 'Auxerunt haec vulgi sordidioris audaciam, quod cum ingravesceret penuria commeatuum, famis et furoris inpulsu Eubuli cuiusdam inter suos clari domum ambitiosam ignibus subditis inflammavit rectoremque ut sibi iudicio imperiali addictum calcibus incessens et pugnis conculcans seminecem laniatu miserando discerpsit. post cuius lacrimosum interitum in unius exitio quisque imaginem periculi sui considerans documento recenti similia formidabat.', 3),
+('Citadelles', 22, 2, 17, 8, 'Stratégie', 'image/citadelles.png', '', '', 4),
+('Smash up', 17, 2, 11, 4, 'Cartes', 'image/smash-up-vf.jpg', '', '', 5),
+('Jenga', 20, 1, 12, 10, 'Adresse', 'image/jenga.jpg', '', '', 6);
 
 --
 -- Index pour les tables déchargées
@@ -131,7 +139,7 @@ ALTER TABLE `jeu`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `ID_Compte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Compte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `jeu`
