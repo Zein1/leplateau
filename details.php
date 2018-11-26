@@ -56,8 +56,11 @@ session_start();
 		<!--BOUTON CONNEXION-->
 		<?php
 	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-   echo 'Bonjour '.$_SESSION['pseudo'];
-   echo '<a href="./logout.php"> Deconexion </a>';
+		echo '<p id="bonjour">'.$_SESSION['pseudo'];
+		echo ' <button type="button" class="btn btn-blue darken-4 btn-sm" id="deconnexion" data-toggle="modal" data-target="#basicExampleModal"><a href="./logout.php">
+					Log out
+				 </a>
+			   </button>';
 	} else {
 	?>
 	   <!-- Button trigger modal -->

@@ -118,10 +118,13 @@ nav {
 
 #deconnexion {
 	border-radius: 10px;
-
+	width: 75px;
+	font-size: 11px;
+	margin-right: 0%;
 }
 
 #bonjour {
 	color: white;
-
+	font-size: 15px;
+	
 }
