@@ -113,3 +113,15 @@ nav {
 #div_image_inscription {
 	margin-left: 4%;
 }
+
+/* Bouton déconnexion */
+
+#deconnexion {
+	border-radius: 10px;
+
+}
+
+#bonjour {
+	color: white;
+
+}

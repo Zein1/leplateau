@@ -80,8 +80,10 @@
         }
 
         if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-        echo 'Bonjour '.$_SESSION['pseudo'];
-        echo '<a href="./logout.php"> Deconexion </a>';
+        echo '<div id="bonjour">Bonjour '.$_SESSION['pseudo'] '</div>';
+        echo ' <button type="button" class="btn btn-blue darken-4" id="deconnexion" data-toggle="modal" data-target="#basicExampleModal" href="logout.php">
+                    Déconnexion
+                </button>';
         } else {
   ?>
      <!-- Button trigger modal -->
