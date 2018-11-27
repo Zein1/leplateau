@@ -144,6 +144,49 @@ session_start();
 		?>
 	</section>
 
+	<!--CREATION AVIS UTILISATEUR-->
+	<section>
+	<h2> Laissez votre avis ! </h2>
+		<form action="traitement_avis.php">
+			<textarea name="avis" id="avis" rows="4" cols="50"> </textarea> <br/>
+			<label for="note"> Note: </label>
+				<select name="note" id="note">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			<br/>
+			<input id="id_avis_jeu" name="id_avis_jeu" type="hidden" value="<?php echo $_GET['id'];?>">
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+
+	<!--LECTURE AVIS UTILISATEURS-->
+
+	<section>
+		<?php
+		$query_user_desc = $bdd->prepare('SELECT avis.ID_Compte, avis.ID_jeu, avis.description, avis.note, compte.identifiant FROM avis INNER JOIN compte ON avis.ID_Compte = compte.ID_Compte WHERE avis.ID_Jeu = ? ORDER BY avis.ID_Compte DESC');
+			$query_user_desc->execute(array($_GET["id"]));
+
+				while ($user_desc = $query_user_desc->fetch())
+				{
+		?>
+
+		<div class="user_desc">
+			<h3> <?php echo $user_desc['identifiant'];?> </h3>
+				<p> <?php echo $user_desc['description'];?> </p>
+				<p> <?php echo $user_desc['note'];?> / 5 </p>
+		</div>
+
+		<?php
+				}
+
+				$query_user_desc->closeCursor();
+		?>
+	</section>
+
 	<!--FOOTER AVEC MENTION LEGALES, ETC...-->
 	<?php include("footer.php"); ?>
 

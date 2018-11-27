@@ -30,9 +30,6 @@ catch(Exception $e)
 
 	else
 		{
-			?>
-
-			<?php
 			header("Location: inscription.php?warning_mdp=triggered");
 			exit;
 		}
