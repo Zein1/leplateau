@@ -126,3 +126,12 @@ nav {
 	height: 50px;
 	width: 50px;
 }
+
+/*CSS PAGE DETAIL */
+
+#achete {
+	display: block;
+	margin: auto;
+	height: 50px;
+	width: 140px;
+}

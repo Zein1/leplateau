@@ -88,7 +88,7 @@ session_start();
 			        die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 			}
 
-			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, description, image FROM jeu WHERE ID_Jeu = '.$_GET["id"]);
+			$query_game = $bdd->query('SELECT nom, prix, nbMinJoueurs, nbMaxJoueurs, noteRedac, catégorie, testRedac, description, image, achat FROM jeu WHERE ID_Jeu = '.$_GET["id"]);
 
 			while ($recent_data = $query_game->fetch())
 			{
@@ -118,7 +118,7 @@ session_start();
 				<p>Catégorie : <?php echo $recent_data['catégorie']; ?> <br/>
 				de <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs']; ?> Joueurs <br/>
 				Prix : <?php echo $recent_data['prix']; ?> Euros <br/>
-				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/5 <br/> <br/>
+				Note de la redac : <?php echo $recent_data['noteRedac']; ?>/20 <br/> <br/>
 				<i>"<?php echo $recent_data['description']; ?>"</i>
 				</p>
 			</article>
@@ -137,12 +137,15 @@ session_start();
 			<article class="col-lg-2">
 			</article>
 		</div>
-		<?php
+
+	<button id="achete" class="btn btn-red darken-3"> J'achète ! </button>
+	</section>
+
+			<?php
 			}
 
 			$query_game->closeCursor();
 		?>
-	</section>
 
 	<!--CREATION AVIS UTILISATEUR-->
 	<section>
