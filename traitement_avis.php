@@ -24,13 +24,13 @@ catch(Exception $e)
 				'note' => $_POST['note']
 				));
 
-	     	header("Location: accueil_societe.php");
+	     	header("Location: details.php?id=".$_POST['id_avis_jeu']);
 	     	exit;
 	     }
 
 	else
 		{
-			header("Location: accueil_societe.php");
+			header("Location: details.php?id=".$_POST['id_avis_jeu']);
 			exit;
 		}
 ?>
