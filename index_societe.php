@@ -53,7 +53,7 @@ session_start();
 	<!--BOUTON CONNEXION-->
   <?php
   if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-    echo '<p id="bonjour">'.$_SESSION['pseudo'];
+    echo '<p id="pseudo">'.$_SESSION['pseudo'].'</p>';
     echo '<a href="logout.php"><img id="power" src="image\power-button-155491_960_720.png"></a>';
   } else {
   ?>
@@ -129,12 +129,12 @@ if (!empty($_POST["rechercher"]))
       {
         ?>
         <div class="row index_entry">
-          <div class="col-lg-6 index_image">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_image">
             <a href="./details.php?id=<?php echo $user_request['ID_Jeu'];?>">
             <img src="<?php echo $user_request['image'];?>" alt="paper-tales" height="120" width="130"/>
             </a>
       </div>
-        <p class="col-lg-6 index_desc">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_desc">
           <strong>Jeu</strong> : <?php echo $user_request['nom']; ?><br />
           <strong>Joueurs</strong> : <?php echo $user_request['nbMinJoueurs']; ?> à <?php echo $user_request['nbMaxJoueurs'];?>  <br />
           <strong>Note</strong> : <?php echo $user_request['noteRedac']; ?><br />
@@ -159,12 +159,12 @@ else if ($_GET["chosen_categorie"] == "nouveau")
         {
     ?>
     <div class="row index_entry">
-      <div class="col-lg-6 index_image">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_image">
         <a href="./details.php?id=<?php echo $recent_data['ID_Jeu'];?>">
         <img src="<?php echo $recent_data['image'];?>" alt="paper-tales" height="120" width="130"/>
         </a>
       </div>
-        <p class="col-lg-6 index_desc">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_desc">
         <strong>Jeu</strong> : <?php echo $recent_data['nom']; ?><br />
         <strong>Joueurs</strong> : <?php echo $recent_data['nbMinJoueurs']; ?> à <?php echo $recent_data['nbMaxJoueurs'];?>  <br />
         <strong>Note</strong> : <?php echo $recent_data['noteRedac']; ?><br />
@@ -189,12 +189,12 @@ else if ($_GET["chosen_categorie"] == "nouveau")
         {
       ?>
       <div class="row index_entry">
-        <div class="col-lg-6 index_image">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_image">
           <a href="./details.php?id=<?php echo $popular_data['ID_Jeu'];?>">
           <img src="<?php echo $popular_data['image'];?>" alt="paper-tales" height="120" width="130"/>
           </a>
         </div>
-          <p class="col-lg-6 index_desc">
+          <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_desc">
           <strong>Jeu</strong> : <?php echo $popular_data['nom']; ?><br />
           <strong>Joueurs</strong> : <?php echo $popular_data['nbMinJoueurs']; ?> à <?php echo $popular_data['nbMaxJoueurs'];?>  <br />
           <strong>Note</strong> : <?php echo $popular_data['noteRedac']; ?><br />
@@ -219,12 +219,12 @@ else if ($_GET["chosen_categorie"] == "nouveau")
           {
           ?>
           <div class="row index_entry">
-            <div class="col-lg-6 index_image">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_image">
               <a href="./details.php?id=<?php echo $categorie_data['ID_Jeu'];?>">
               <img src="<?php echo $categorie_data['image'];?>" alt="paper-tales" height="120" width="130"/>
               </a>
             </div>
-              <p class="col-lg-6 index_desc">
+              <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index_desc">
               <strong>Jeu</strong> : <?php echo $categorie_data['nom']; ?><br />
               <strong>Joueurs</strong> : <?php echo $categorie_data['nbMinJoueurs']; ?> à <?php echo $categorie_data['nbMaxJoueurs'];?>  <br />
               <strong>Note</strong> : <?php echo $categorie_data['noteRedac']; ?><br />

@@ -46,7 +46,7 @@
             <img src="image/arrivage-mars-avril-2014.jpg" id="image_inscription">
         </div>
 
-        <div  class="col-lg-5">
+        <div  class="col-lg-5" id="div_formulaire_inscription">
         <form action="traitement_auth.php" method="post" class="inscription">
         
             <p><label for="nom"></label><input type="text" class="taille_input_inscription" name="nom" id="nom" placeholder="Nom" ></p>

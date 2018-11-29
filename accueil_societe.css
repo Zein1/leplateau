@@ -116,10 +116,13 @@ nav {
 
 /* Bouton déconnexion */
 
-#bonjour {
-	color: white;
+#pseudo {
+	color: rgb(218, 9, 15);
 	font-size: 20px;
 	margin-top: 15px;
+	font-weight: bold;
+	font-style: italic;
+	opacity: 0.8;
 }
 
 #power {
@@ -127,11 +130,71 @@ nav {
 	width: 50px;
 }
 
-/*CSS PAGE DETAIL */
+/*CSS PAGE DETAIL*/
 
 #achete {
 	display: block;
 	margin: auto;
 	height: 50px;
 	width: 140px;
+}
+
+/*MEDIA QUERIES*/
+/*NAVBAR*/
+.ham_icon {
+    display: none !important;
+}
+
+@media screen and (max-width: 1199px) {
+
+  #accueil_logo {
+  	display: none;
+  }
+
+  .hamburger {
+  	display: none;
+  }
+
+  .ham_icon {
+  	display: block !important;
+  }
+
+  .hamburger.responsive {float: none;}
+  .hamburger.responsive {position: relative;}
+  .hamburger.responsive {
+    display: block;
+    width: 100%;
+    text-align: left;
+	}
+}
+
+/*INDEX*/
+@media screen and (max-width: 575px) {
+
+	.index_image {
+		text-align: center;
+	}
+
+	.index_desc {
+		text-align: center;
+	}
+}
+
+/*DETAILS*/
+@media screen and (max-width: 499px) {
+	#avis {
+		width: 80% ;
+	}
+}
+
+/*INSCRIPTION*/
+@media screen and (min-width: 550px) and (max-width: 992px) {
+	#image_inscription {
+		display: none;
+	}
+
+	#div_formulaire_inscription {
+		width: 80%;
+		text-align: center;
+	}
 }

@@ -1,3 +1,5 @@
+//OPACITE DU MENU
+
 $( document ).ready(function() {
     $("#cartes").mouseenter(function () { $("#cartes").css("opacity", "0.5");});
     $("#cartes").mouseleave(function () { $("#cartes").css("opacity", "1");});
@@ -27,3 +29,14 @@ $( document ).ready(function() {
     $("#coeur").mouseenter(function () { $("#coeur").css("opacity", "0.5");});
     $("#coeur").mouseleave(function () { $("#coeur").css("opacity", "1");});
 });
+
+//BOUTON HAMBURGER RESPONSIVE
+
+function display_hamburger () {
+	var x = document.getElementById("myHamburger");
+    if (x.className === "hamburger") {
+        x.className += " responsive";
+    } else {
+        x.className = "hamburger";
+    }
+}

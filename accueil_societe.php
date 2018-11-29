@@ -45,7 +45,7 @@
 
 	<?php
 	if(isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-   echo '<p id="bonjour">'.$_SESSION['pseudo'];
+   echo '<p id="pseudo">'.$_SESSION['pseudo'].'</p>';
    echo '<a href="logout.php"><img id="power" src="image\power-button-155491_960_720.png"></a>';
 	} else {
 	?>
