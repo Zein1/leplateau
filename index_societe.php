@@ -74,14 +74,14 @@ session_start();
                     </button>
                 </div>
 
-                <form action="" method="post">
+                <form action="authentification.php" method="post" class="formulaire">
                     <div class="modal-body">
 
                         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
 
 
-                        <div id="formulaire">
+                        <div>
 
                             <p><label for="name"></label><input type="text" name="name" id="name" placeholder="Identifiant"></p>
                             <div id="error"></div>

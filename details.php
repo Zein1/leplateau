@@ -50,28 +50,44 @@ session_start();
 	   <!-- Button trigger modal -->
 	<button type="button" class="btn btn-red darken-3" id="bouton-principal" data-toggle="modal" data-target="#basicExampleModal"> Connexion </button>      
 	<!-- Modal -->
-	<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content" id="Connexion">
-           <div class="modal-header">
-             <h5 class="modal-title" id="exampleModalLabel">Connexion au Plateau</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-           </div>
-           <div class="modal-body">                
-           	<form class="oui">
-           	  <p><input type="text" name="identifiant" placeholder="Identifiant"></p>
-           	  <p><input type="password" name="mdp" placeholder="Mot de passe"></p>                
-           	</form>
-           	</div>
+	<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="Connexion">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Connexion au Plateau</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-           <div class="modal-footer">
-             <button type="button" class="btn btn-stylish-color" id="annuler" data-dismiss="modal">Annuler</button>
-             <button type="button" class="btn btn-red darken-3" id="bouton-connexion">Connexion</button>
-           </div>
-         </div>
-       </div>
+                <form action="authentification.php" method="post" class="formulaire">
+                    <div class="modal-body">
+
+                        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+
+
+                        <div>
+
+                            <p><label for="name"></label><input type="text" name="name" id="name" placeholder="Identifiant"></p>
+                            <div id="error"></div>
+                            <p><label for="mdp"></label><input type="password" name="mdp" id="mdp" placeholder="Mot de passe"></p>
+							<div id="errordeux"></div>
+							
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="inscription.php">
+                            <input type="button" class="btn btn-indigo darken-1" id="inscription" value="inscription" />
+                        </a>
+                        <input type="reset" class="btn btn-stylish-color" id="annuler" value="annuler" data-dismiss="modal"/>
+                        <input type="submit" class="btn btn-red darken-3" id="bouton-connexion" value="connexion" />
+                </form>
+            </div>
+        </div>
+    </div>
         <?php
     	}
     	?>
