@@ -138,7 +138,7 @@ session_start();
 			</article>
 		</div>
 
-	<button id="achete" class="btn btn-red darken-3"> J'achète ! </button>
+	<button id="achete" class="btn btn-red darken-3" onclick="window.location.href='<?php echo $recent_data['achat']; ?>'"> J'achète ! </button>
 	</section>
 
 			<?php
