@@ -14,7 +14,7 @@ catch(Exception $e)
 		die('Erreur : '.$e->getMessage());		// En cas d'erreur, on affiche un message et on arrête tout
 	}
 
-	if (strlen($_POST['avis']) > 0 && strlen($_POST['avis']) < 501)
+	if (!empty($_POST['avis']) && strlen($_POST['avis']) < 501)
 		{
 			$new_avis = $bdd->prepare('INSERT INTO avis(ID_Compte, ID_Jeu, description, note) VALUES (:idcompte, :idjeu, :description, :note)');
 			$new_avis->execute(array(
