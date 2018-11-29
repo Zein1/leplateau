@@ -149,7 +149,11 @@ session_start();
 
 	<!--CREATION AVIS UTILISATEUR-->
 	<section>
-	<h2> Laissez votre avis ! </h2>
+	<?php 
+	if (isset($_SESSION['id']) && !empty($_SESSION['id']))
+	{
+		?>
+		<h2> Laissez votre avis ! </h2>
 		<form method="post" action="traitement_avis.php">
 			<textarea name="avis" id="avis" rows="4" cols="50"> </textarea> <br/>
 			<label for="note"> Note: </label>
@@ -165,7 +169,9 @@ session_start();
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
-
+	<?php
+	}
+	?>
 	<!--LECTURE AVIS UTILISATEURS-->
 
 	<section>
